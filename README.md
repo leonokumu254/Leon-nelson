@@ -1,4 +1,4 @@
-👨‍💻 Personal Portfolio Website
+👨‍💻 Personal Portfolio Website.
 A responsive, user-centric portfolio website built to showcase my journey as a Junior Developer. This project highlights my skills in modern web development, specifically focusing on React, component-based architecture, and interactive UI design.
 
 "A Junior Developer dedicated to crafting clear, responsive, and user-focused digital products. I bridge the gap between functional code and modern innovation, constantly exploring how AI and automation can elevate web experiences."
@@ -17,7 +17,8 @@ Frontend: React.js (.jsx)
 
 Build Tool: Vite
 
-Styling: CSS3, Google Fonts
+Styling: CSS3, Google Fonts<img width="1890" height="940" alt="Screenshot 2025-12-19 142906" src="https://github.com/user-attachments/assets/0b4d7733-8da9-4684-8af5-279e515078ef" />
+
 
 Icons: SVG Assets
 
