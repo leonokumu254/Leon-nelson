@@ -1,20 +1,8 @@
 *{
     box-sizing: border-box;
 }
-@keyframes breathe {
-  0% {
-    transform: scale(1);
-    box-shadow: 0px 0px 15px rgba(185, 35, 225, 0.6);
-  }
-  50% {
-    transform: scale(1.08); /* Grows 8% larger */
-    box-shadow: 0px 0px 30px rgba(185, 35, 225, 1); /* Glow gets brighter */
-  }
-  100% {
-    transform: scale(1);
-    box-shadow: 0px 0px 15px rgba(185, 35, 225, 0.6);
-  }
-}
+
+
 .navbar{
     display: flex;
     align-items: center;
@@ -43,9 +31,9 @@
     border-radius: 30px;
     padding: 5px;
     box-shadow: 0px 0px 15px rgba(185, 35, 225, 0.6); 
-  transition: 0.3s ease-in-out;
+  
   filter: drop-shadow(0px 0px 10px rgba(185, 35, 225, 0.8));
-  animation: breathe 3s infinite ease-in-out;
+
     
 }
 .nelson-logo:hover {
