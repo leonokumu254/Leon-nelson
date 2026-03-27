@@ -4,7 +4,7 @@ import  theme_pattern from'../../../assets/theme_pattern.svg'
 import mail_icon from '../../../assets/mail_icon.svg'
 import location_icon from '../../../assets/location_icon.svg'
 import call_icon from '../../../assets/call_icon.svg'
-import { FaInstagram, FaFacebook, FaGithub, FaLinkedin , FaWhatsapp } from 'react-icons/fa';
+import { FaInstagram, FaFacebook, FaGithub, FaLinkedin , FaWhatsapp } from 'react-icons/fa'; 
 
 const Contact = () => {
   return (
@@ -33,7 +33,7 @@ const Contact = () => {
     <a href="https://www.facebook.com/share/1Gt78JbMaw/" target="_blank" rel="noopener noreferrer" className="social-link">
         <FaFacebook size={30} />
     </a>
-    <a href="https://github.com/gichy2" target="_blank" rel="noopener noreferrer" className="social-link">
+    <a href="https://github.com/leonokumu254 " target="_blank" rel="noopener noreferrer" className="social-link">
         <FaGithub size={30} />
     </a>
     <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-link">
