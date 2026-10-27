@@ -20,80 +20,103 @@ const roleItems = [
 ]
 
 const Hero = () => {
-  const [roleIndex, setRoleIndex] = useState(0)
-  const [displayText, setDisplayText] = useState('')
-  const [isDeleting, setIsDeleting] = useState(false)
+  const [activeIndex, setActiveIndex] = useState(0)
 
-  // Typewriter effect synced with active role item
+  // Slot machine vertical wheel roll timer
   useEffect(() => {
-    const currentTitle = roleItems[roleIndex].title
-    const typingSpeed = isDeleting ? 35 : 75
-    const pauseDuration = isDeleting ? 300 : 2200
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % roleItems.length)
+    }, 3200)
 
-    let timer
+    return () => clearInterval(interval)
+  }, [])
 
-    if (!isDeleting && displayText === currentTitle) {
-      // Finished typing full title, pause before deleting
-      timer = setTimeout(() => {
-        setIsDeleting(true)
-      }, pauseDuration)
-    } else if (isDeleting && displayText === '') {
-      // Finished deleting, move to next role
-      setIsDeleting(false)
-      setRoleIndex((prev) => (prev + 1) % roleItems.length)
-      timer = setTimeout(() => {}, 200)
-    } else {
-      // Type or delete characters
-      timer = setTimeout(() => {
-        setDisplayText((prev) =>
-          isDeleting
-            ? currentTitle.substring(0, prev.length - 1)
-            : currentTitle.substring(0, prev.length + 1)
-        )
-      }, typingSpeed)
-    }
-
-    return () => clearTimeout(timer)
-  }, [displayText, isDeleting, roleIndex])
-
-  const activeDescription = roleItems[roleIndex].description
+  const translateYPercent = activeIndex * (100 / roleItems.length)
 
   return (
     <section id="home" className="hero-fullscreen-section">
-      {/* Giant Background Typography: Stroke LEON + Solid NELSON */}
-      <div className="hero-giant-typography" aria-hidden="true">
+      {/* 1. Name appears FIRST coming DOWNWARDS: LEON on left, NELSON + SHIREKU (stroke, smaller) on right */}
+      <div
+        className="hero-giant-typography"
+        aria-hidden="true"
+        data-aos="fade-down"
+        data-aos-duration="1400"
+        data-aos-delay="300"
+      >
         <span className="hero-name-stroke">LEON</span>
-        <span className="hero-name-solid">NELSON</span>
+        <div className="hero-name-right-group">
+          <span className="hero-name-solid">NELSON</span>
+          <span className="hero-name-shireku-stroke">SHIREKU</span>
+        </div>
       </div>
 
-      {/* Center Foreground Cutout Portrait */}
-      <div className="hero-portrait-container">
-        <img
-          src="/picha.png"
-          alt="Leon Nelson - Full-Stack Software Engineer"
-          className="hero-cutout-image"
-        />
+      {/* 4. Picture comes the LAST UPWARDS, centered in viewport */}
+      <div
+        className="hero-portrait-wrapper"
+        data-aos="fade-up"
+        data-aos-duration="1600"
+        data-aos-delay="1350"
+      >
+        <div className="hero-portrait-container">
+          <img
+            src="/picha.png"
+            alt="Leon Nelson Shireku"
+            className="hero-cutout-image"
+          />
+        </div>
       </div>
 
-      {/* Bottom Left Content Block */}
-      <div className="hero-bottom-left" data-aos="fade-up" data-aos-delay="200">
-        <div className="hero-role-heading">
-          <span className="hero-typewriter-text">{displayText}</span>
-          <span className="hero-typewriter-cursor"></span>
+      {/* 2. Roles follow coming from SIDEWAYS (left) */}
+      <div
+        className="hero-bottom-left"
+        data-aos="fade-right"
+        data-aos-duration="1400"
+        data-aos-delay="700"
+      >
+        {/* Slot Machine / Vertical Wheel Reel */}
+        <div className="slot-machine-container">
+          <div className="slot-wheel-viewport">
+            <div
+              className="slot-wheel-reel"
+              style={{ transform: `translateY(-${translateYPercent}%)` }}
+            >
+              {roleItems.map((item, idx) => (
+                <div key={idx} className="slot-wheel-item">
+                  <h2 className="slot-role-title">{item.title}</h2>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Description Reel synced with active role */}
+          <div className="slot-desc-viewport">
+            <div
+              className="slot-desc-reel"
+              style={{ transform: `translateY(-${translateYPercent}%)` }}
+            >
+              {roleItems.map((item, idx) => (
+                <div key={idx} className="slot-desc-item">
+                  <p className="hero-bio-description">{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
-        <p className="hero-bio-description">
-          {activeDescription}
-        </p>
-
+        {/* CTA with midnight color accent */}
         <AnchorLink href="#contact" offset={80} className="hero-collab-btn">
           <span>Let's collaborate</span>
           <FiArrowUpRight className="hero-collab-arrow" />
         </AnchorLink>
       </div>
 
-      {/* Bottom Right Social Links Block */}
-      <div className="hero-bottom-right" data-aos="fade-up" data-aos-delay="300">
+      {/* 3. Social platforms come from the RIGHT */}
+      <div
+        className="hero-bottom-right"
+        data-aos="fade-left"
+        data-aos-duration="1400"
+        data-aos-delay="1050"
+      >
         <a
           href="https://github.com/leonokumu254"
           target="_blank"
