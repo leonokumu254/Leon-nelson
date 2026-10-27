@@ -1,96 +1,183 @@
 import React, { useState, useEffect } from 'react'
 import './navbar.css'
-import logo from '../../assets/logo.png'
-import underline from '../../assets/nav_underline.svg'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
-
+import { FiArrowUpRight, FiMenu, FiX } from 'react-icons/fi'
 
 const Navbar = () => {
-  const [menu, setMenu] = useState("home");
-  
-  
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const [activeSection, setActiveSection] = useState('home')
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    setIsMenuOpen(!isMenuOpen)
   }
 
-
   useEffect(() => {
-    const onScroll = () => {
-      const sections = ["home", "about", "services", "work", "contact"];
-      const scrollPos = window.scrollY + 200;
+    const handleScroll = () => {
+      if (window.scrollY > 30) {
+        setIsScrolled(true)
+      } else {
+        setIsScrolled(false)
+      }
+
+      const sections = ['home', 'services', 'about', 'contact']
+      const scrollPos = window.scrollY + 250
 
       sections.forEach((section) => {
-        const element = document.getElementById(section);
-        if (element) {
-          const offsetTop = element.offsetTop;
-          const offsetHeight = element.offsetHeight;
-          if (
-            scrollPos >= offsetTop &&
-            scrollPos < offsetTop + offsetHeight
-          ) {
-            setMenu(section);
+        const el = document.getElementById(section)
+        if (el) {
+          const offsetTop = el.offsetTop
+          const offsetHeight = el.offsetHeight
+          if (scrollPos >= offsetTop && scrollPos < offsetTop + offsetHeight) {
+            setActiveSection(section)
           }
         }
-      });
-    };
+      })
+    }
 
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
-    <div className='navbar'>
-      <img className="nelson-logo" src={logo} alt=""/>
+    <header className={`modern-nav-wrapper ${isScrolled ? 'scrolled' : ''}`}>
+      <nav className="modern-nav-container">
+        {/* Left: Available for New Project Badge */}
+        <div className="nav-status-badge">
+          <span className="status-dot">
+            <span className="status-ping"></span>
+          </span>
+          <span className="status-text">Available for Work</span>
+        </div>
 
-      
-      <div 
-        className={`nav-toggle ${isMenuOpen ? 'open' : ''}`} 
-        onClick={toggleMenu}
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      
+        {/* Center: Nav links with count badges */}
+        <ul className="nav-links-desktop">
+          <li>
+            <AnchorLink
+              className={`nav-link-item ${activeSection === 'home' ? 'active' : ''}`}
+              href="#home"
+              offset={80}
+            >
+              <span>Work</span>
+              
+            </AnchorLink>
+          </li>
+          <li>
+            <AnchorLink
+              className={`nav-link-item ${activeSection === 'services' ? 'active' : ''}`}
+              href="#services"
+              offset={80}
+            >
+              <span>Service</span>
+               
+            </AnchorLink>
+          </li>
+          <li>
+            <AnchorLink
+              className={`nav-link-item ${activeSection === 'about' ? 'active' : ''}`}
+              href="#about"
+              offset={80}
+            >
+              <span>Experience</span>
+               
+            </AnchorLink>
+          </li>
+          <li>
+            <AnchorLink
+              className={`nav-link-item ${activeSection === 'contact' ? 'active' : ''}`}
+              href="#contact"
+              offset={80}
+            >
+              <span>Contact</span>
+            </AnchorLink>
+          </li>
+        </ul>
 
-      <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
-        <li>
-          <AnchorLink className='anchor-link' href='#home'>
-            
-            <p onClick={() => { setMenu("home"); setIsMenuOpen(false); }}>Home</p>
+        {/* Right: Let's Talk CTA button */}
+        <div className="nav-cta-wrapper">
+          <AnchorLink className="nav-cta-btn" href="#contact" offset={80}>
+            <span>Let's Talk</span>
+            <FiArrowUpRight className="nav-cta-arrow" />
           </AnchorLink>
-          {menu==="home"?<img src={underline} alt=''/>:<></>}
-        </li>
-        <li>
-          <AnchorLink className='anchor-link' offset={50} href='#about'> 
-            <p onClick={() => { setMenu("about"); setIsMenuOpen(false); }}> About Me</p>
+        </div>
+
+        {/* Mobile Hamburger Button */}
+        <button
+          className="nav-mobile-toggle"
+          onClick={toggleMenu}
+          aria-label="Toggle Navigation Menu"
+        >
+          {isMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+        </button>
+      </nav>
+
+      {/* Mobile Drawer Menu */}
+      <div className={`nav-mobile-drawer ${isMenuOpen ? 'open' : ''}`}>
+        <div className="mobile-drawer-header">
+          <div className="nav-status-badge mobile-badge">
+            <span className="status-dot">
+              <span className="status-ping"></span>
+            </span>
+            <span className="status-text">Available for Work</span>
+          </div>
+        </div>
+
+        <ul className="nav-links-mobile">
+          <li>
+            <AnchorLink
+              className="nav-link-item-mobile"
+              href="#home"
+              offset={60}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <span>Work</span>
+            </AnchorLink>
+          </li>
+          <li>
+            <AnchorLink
+              className="nav-link-item-mobile"
+              href="#services"
+              offset={60}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <span>Service</span>
+            </AnchorLink>
+          </li>
+          <li>
+            <AnchorLink
+              className="nav-link-item-mobile"
+              href="#about"
+              offset={60}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <span>Experience</span>
+            </AnchorLink>
+          </li>
+          <li>
+            <AnchorLink
+              className="nav-link-item-mobile"
+              href="#contact"
+              offset={60}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <span>Contact</span>
+            </AnchorLink>
+          </li>
+        </ul>
+
+        <div className="mobile-drawer-footer">
+          <AnchorLink
+            className="nav-cta-btn mobile-cta-btn"
+            href="#contact"
+            offset={60}
+            onClick={() => setIsMenuOpen(false)}
+          >
+            <span>Let's Talk</span>
+            <FiArrowUpRight className="nav-cta-arrow" />
           </AnchorLink>
-          {menu==="about"?<img src={underline} alt=''/>:<></>}
-        </li>
-        <li>
-          <AnchorLink className='anchor-link' offset={50} href='#services'>
-            <p onClick={() => { setMenu("services"); setIsMenuOpen(false); }}> Services</p>
-          </AnchorLink>
-          {menu==="services"?<img src={underline} alt=''/>:<></>}
-        </li>
-        
-        <li>
-          <AnchorLink className='anchor-link' offset={50} href='#contact'>
-            <p onClick={() => { setMenu("contact"); setIsMenuOpen(false); }}> Contact</p>
-          </AnchorLink>
-          {menu==="contact"?<img src={underline} alt=''/>:<></>}
-        </li>
-        
-      </ul>
-      
-      <div className="nav-connect">
-        <AnchorLink className='anchor-link' offset={50} href='#contact'>
-        Connect with Me</AnchorLink>
+        </div>
       </div>
-    </div>
+    </header>
   )
 }
 
