@@ -1,59 +1,97 @@
-import React, { useState } from 'react' // Import useState
+import React, { useState } from 'react'
 import './services.css'
-import theme_pattern from '../../../assets/theme_pattern.svg'
 import Services_Data from '../../../assets/services_data.js'
-import arrow_icon from '../../../assets/arrow_icon.svg'
+import { FiArrowUpRight, FiX } from 'react-icons/fi'
 
 const Services = () => {
-  // State to track which service is currently expanded
-  // We store the index of the open card. If null, nothing is open.
-  const [expandedIndex, setExpandedIndex] = useState(null);
+  // First service expanded by default matching the reference design
+  const [expandedIndex, setExpandedIndex] = useState(0)
 
-  // Function to handle the click
-  const toggleReadMore = (index) => {
-    // If the clicked index is already open, close it (set to null)
-    // Otherwise, open the clicked index
-    setExpandedIndex(expandedIndex === index ? null : index);
+  const toggleService = (index) => {
+    setExpandedIndex(expandedIndex === index ? null : index)
   }
 
   return (
-    <div id='services' className='services'>
-      <div className="services-title">
-        <h1 data-aos="fade-up">My Services</h1>
-        <img src={theme_pattern} alt=""  data-aos="fade-up"/>
+    <section id="services" className="services-section">
+      {/* Header with ghost watermark and bold /SERVICE title */}
+      <div className="services-header" data-aos="fade-up">
+        <span className="services-watermark" aria-hidden="true">
+          SERVICE
+        </span>
+        <h2 className="services-main-title">/SERVICE</h2>
       </div>
-      <div   className="services-container">
+
+      {/* Services List / Accordion */}
+      <div className="services-list" data-aos="fade-up" data-aos-delay="200">
         {Services_Data.map((service, index) => {
-        
-          const isExpanded = expandedIndex === index;
+          const isExpanded = expandedIndex === index
 
           return (
-            <div  data-aos="zoom-in"key={index} className='services-format'>
-              <h3>{service.s_no}</h3>
-              <h2>{service.s_name}</h2>
-              
-    
-              <p>
-                {isExpanded 
-                  ? service.s_desc 
-                  : `${service.s_desc.slice(0, 60)}...`} 
-                  
-              </p>
+            <div
+              key={index}
+              className={`service-item-row ${isExpanded ? 'active-card' : ''}`}
+            >
+              {isExpanded ? (
+                /* Active Dark Card State with Floating Mockup */
+                <div className="service-card-expanded">
+                  <div className="service-card-content">
+                    <div className="service-card-header">
+                      <span className="service-card-num">{service.s_no}</span>
+                      <h3 className="service-card-title">{service.s_name}</h3>
+                    </div>
 
-              <div 
-                className='services-readmore' 
-                onClick={() => toggleReadMore(index)} 
-                style={{cursor: 'pointer'}} 
-              >
-            
-                <p>{isExpanded ? "Read Less" : "Read More"}</p>
-                <img src={arrow_icon} alt="" />
-              </div>
+                    <p className="service-card-desc">{service.s_desc}</p>
+                  </div>
+
+                  {service.s_image && (
+                    <div className="service-card-mockup-wrapper">
+                      <img
+                        src={service.s_image}
+                        alt={`${service.s_name} preview mockup`}
+                        className="service-card-mockup-img"
+                      />
+                    </div>
+                  )}
+
+                  <button
+                    className="service-card-close-btn"
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      toggleService(index)
+                    }}
+                    aria-label={`Close ${service.s_name}`}
+                  >
+                    <FiX className="service-close-icon" />
+                  </button>
+                </div>
+              ) : (
+                /* Inactive Collapsed Row State */
+                <div
+                  className="service-row-collapsed"
+                  onClick={() => toggleService(index)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault()
+                      toggleService(index)
+                    }
+                  }}
+                >
+                  <div className="service-row-left">
+                    <span className="service-row-num">{service.s_no}</span>
+                    <h3 className="service-row-title">{service.s_name}</h3>
+                  </div>
+                  <div className="service-row-arrow-wrap">
+                    <FiArrowUpRight className="service-row-arrow" />
+                  </div>
+                </div>
+              )}
             </div>
           )
         })}
       </div>
-    </div>
+    </section>
   )
 }
 

@@ -20,7 +20,7 @@ const Navbar = () => {
         setIsScrolled(false)
       }
 
-      const sections = ['home', 'services', 'about', 'contact']
+      const sections = ['home', 'work', 'services', 'about', 'contact']
       const scrollPos = window.scrollY + 250
 
       sections.forEach((section) => {
@@ -54,12 +54,11 @@ const Navbar = () => {
         <ul className="nav-links-desktop">
           <li>
             <AnchorLink
-              className={`nav-link-item ${activeSection === 'home' ? 'active' : ''}`}
-              href="#home"
+              className={`nav-link-item ${activeSection === 'work' ? 'active' : ''}`}
+              href="#work"
               offset={80}
             >
               <span>Work</span>
-              
             </AnchorLink>
           </li>
           <li>
@@ -126,7 +125,7 @@ const Navbar = () => {
           <li>
             <AnchorLink
               className="nav-link-item-mobile"
-              href="#home"
+              href="#work"
               offset={60}
               onClick={() => setIsMenuOpen(false)}
             >

@@ -2,6 +2,7 @@ import React ,{useEffect} from 'react'
 import Navbar from './components/navbar.jsx'
 import Hero from  './components/Hero/Hero.jsx'
 import About from './components/About/About.jsx'
+import Work from './components/Work/Work.jsx'
 import Services from './components/services/services.jsx'
 import Contact from './components/Contact/Contact.jsx'
 import Footer from './components/Footer/Footer.jsx'
@@ -21,10 +22,11 @@ function App() {
     <>
       <Navbar />
       <Hero />
-      <About />
+      <Work />
       <Services />
-       <Contact/>
-      <Footer/>
+      <About />
+      <Contact />
+      <Footer />
     </>
   )
 }
