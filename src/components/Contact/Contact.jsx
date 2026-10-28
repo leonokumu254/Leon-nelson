@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './contact.css'
 import { FiArrowUpRight, FiCheck, FiPhone, FiFileText } from 'react-icons/fi'
-import { FaInstagram, FaGithub, FaLinkedinIn, FaWhatsapp, FaTiktok } from 'react-icons/fa6'
+import { FaInstagram, FaGithub, FaWhatsapp, FaTiktok } from 'react-icons/fa6'
 
 const Contact = () => {
   const [copied, setCopied] = useState(false)
@@ -128,16 +128,6 @@ const Contact = () => {
           >
             <FaTiktok className="pill-platform-icon" />
             <span>TikTok</span>
-          </a>
-
-          <a
-            href="https://linkedin.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="contact-platform-pill"
-          >
-            <FaLinkedinIn className="pill-platform-icon" />
-            <span>LinkedIn</span>
           </a>
 
           <a

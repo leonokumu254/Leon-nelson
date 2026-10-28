@@ -1,0 +1,9 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Host
+Host: https://leonshireku.me
+
+# Sitemaps
+Sitemap: https://leonshireku.me/sitemap.xml

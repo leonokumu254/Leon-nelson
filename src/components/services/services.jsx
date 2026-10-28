@@ -12,6 +12,16 @@ const Services = () => {
     setExpandedIndex(expandedIndex === index ? null : index)
   }
 
+  // Preload all service images on component mount so they appear instantaneously upon click
+  useEffect(() => {
+    Services_Data.forEach((service) => {
+      if (service.s_image) {
+        const preloadImg = new Image()
+        preloadImg.src = service.s_image
+      }
+    })
+  }, [])
+
   // Refresh AOS when accordion row is toggled so the image animation triggers
   useEffect(() => {
     AOS.refresh()
@@ -60,6 +70,9 @@ const Services = () => {
                         src={service.s_image}
                         alt={`${service.s_name} preview mockup`}
                         className="service-card-mockup-img"
+                        loading="eager"
+                        decoding="async"
+                        fetchPriority="high"
                       />
                     </div>
                   )}

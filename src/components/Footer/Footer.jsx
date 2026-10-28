@@ -1,7 +1,7 @@
 import React from 'react'
 import './footer.css'
 import footer_logo from '../../../assets/logo.png'
-import { FaInstagram, FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaInstagram, FaFacebook, FaGithub } from 'react-icons/fa';
 import { FaTiktok } from 'react-icons/fa6';
 
 function Footer() {
@@ -30,9 +30,6 @@ function Footer() {
     </a>
     <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="GitHub">
         <FaGithub size={28} />
-    </a>
-    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="LinkedIn">
-        <FaLinkedin size={28} />
     </a>
 </div>
             

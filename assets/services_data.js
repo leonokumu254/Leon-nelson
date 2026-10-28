@@ -21,7 +21,7 @@ const Services_Data = [
     s_no: "04",
     s_name: "DEVOPS & CLOUD INFRASTRUCTURE",
     s_desc: "I automate deployments with continuous integration and delivery (CI/CD), manage secure cloud environments, and implement proactive system monitoring to ensure 24/7 uptime, lightning-fast speeds, and effortless scalability.",
-    s_image: "/services/devops.jpg"
+    s_image: "/services/devops.webp"
   }
 ];
 

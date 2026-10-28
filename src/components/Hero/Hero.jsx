@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './hero.css'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import { FiArrowUpRight } from 'react-icons/fi'
-import { FaInstagram, FaLinkedinIn, FaTiktok, FaGithub } from 'react-icons/fa6'
+import { FaInstagram, FaTiktok, FaGithub } from 'react-icons/fa6'
 
 const roleItems = [
   {
@@ -139,16 +139,6 @@ const Hero = () => {
         >
           <FaInstagram className="social-pill-icon" />
           <span>Instagram</span>
-        </a>
-
-        <a
-          href="https://www.linkedin.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hero-social-pill"
-        >
-          <FaLinkedinIn className="social-pill-icon" />
-          <span>LinkedIn</span>
         </a>
 
         <a

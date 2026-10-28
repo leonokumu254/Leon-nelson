@@ -21,11 +21,13 @@ function App() {
   return (
     <>
       <Navbar />
-      <Hero />
-      <About />
-      <Services />
-      <Work />
-      <Contact />
+      <main id="main-content" role="main">
+        <Hero />
+        <About />
+        <Services />
+        <Work />
+        <Contact />
+      </main>
       <Footer />
     </>
   )
