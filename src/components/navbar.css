@@ -131,10 +131,46 @@
   font-weight: 700;
 }
 
-/* Right: Let's Talk CTA button with Midnight Accent */
+/* Right: Resume Link & Let's Talk CTA button with Midnight Accent */
 .nav-cta-wrapper {
   display: flex;
   align-items: center;
+  gap: 12px;
+}
+
+.nav-resume-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  color: var(--color-midnight);
+  padding: 9px 18px;
+  border-radius: 9999px;
+  border: 1.5px solid var(--color-silver);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  letter-spacing: -0.01em;
+}
+
+.nav-resume-btn:hover {
+  background: #ffffff;
+  border-color: var(--color-cobalt);
+  color: var(--color-cobalt);
+  transform: translateY(-1.5px);
+  box-shadow: 0 4px 14px rgba(0, 71, 255, 0.15);
+}
+
+.nav-resume-arrow {
+  font-size: 14px;
+  color: var(--color-cobalt);
+  transition: transform 0.25s ease;
+}
+
+.nav-resume-btn:hover .nav-resume-arrow {
+  transform: translate(2px, -2px);
 }
 
 .nav-cta-btn {
@@ -280,6 +316,21 @@
   .nav-link-item-mobile:hover {
     border-color: var(--color-cobalt);
     color: var(--color-cobalt);
+  }
+
+  .mobile-drawer-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .mobile-resume-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 13px 20px;
+    background: #ffffff;
+    font-size: 14.5px;
   }
 
   .mobile-cta-btn {

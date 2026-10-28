@@ -10,6 +10,10 @@ const roleItems = [
     description: 'Building robust backend systems and responsive web applications.'
   },
   {
+    title: 'DevOps & Cloud Engineer',
+    description: 'Automating CI/CD pipelines, container orchestration, and 24/7 system  uptime.'
+  },
+  {
     title: 'Social Media Manager',
     description: 'Executing engaging content strategies and growing online brand communities.'
   },
@@ -148,7 +152,7 @@ const Hero = () => {
         </a>
 
         <a
-          href="https://www.tiktok.com"
+          href="https://www.tiktok.com/@nelson_leon6?is_from_webapp=1&sender_device=pc"
           target="_blank"
           rel="noopener noreferrer"
           className="hero-social-pill"

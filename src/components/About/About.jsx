@@ -2,6 +2,9 @@ import React from 'react'
 import './about.css'
 import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaPython, FaAngular, FaNodeJs } from 'react-icons/fa6'
 import { SiNextdotjs, SiPostgresql, SiDocker } from 'react-icons/si'
+import { FiFileText, FiArrowUpRight } from 'react-icons/fi'
+
+const resumeUrl = 'https://docs.google.com/document/d/1ysB4CDrRh2jZUjOp3PFblqdg8njHe-kTuuGXMdi2ZNQ/edit?usp=sharing'
 
 const techStack = [
   { name: 'HTML', icon: <FaHtml5 className="tech-icon html-icon" /> },
@@ -36,6 +39,20 @@ const About = () => {
             <p>
               By uniting robust engineering with data-driven SEO and compelling digital strategies, my goal is to bridge the gap between technical capability and tangible impact—ensuring every platform I create performs seamlessly and connects with the right audience.
             </p>
+          </div>
+
+          {/* Direct Resume / CV Access Button */}
+          <div className="about-resume-action" data-aos="fade-up" data-aos-delay="280">
+            <a
+              href={resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="about-resume-btn"
+            >
+              <FiFileText className="about-resume-icon" />
+              <span>View Full Resume / CV</span>
+              <FiArrowUpRight className="about-resume-arrow" />
+            </a>
           </div>
 
           {/* Tech Stack Logos */}

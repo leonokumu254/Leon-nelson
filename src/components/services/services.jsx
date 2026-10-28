@@ -59,12 +59,7 @@ const Services = () => {
                       <img
                         src={service.s_image}
                         alt={`${service.s_name} preview mockup`}
-                        className={`service-card-mockup-img fit-${service.fit || 'cover'}`}
-                        style={{
-                          objectFit: service.fit || 'cover',
-                          backgroundColor: service.bg || 'transparent',
-                          padding: service.fit === 'contain' ? '12px' : '0'
-                        }}
+                        className="service-card-mockup-img"
                       />
                     </div>
                   )}

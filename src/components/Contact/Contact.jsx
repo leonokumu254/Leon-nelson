@@ -1,96 +1,158 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './contact.css'
-import  theme_pattern from'../../../assets/theme_pattern.svg'
-import mail_icon from '../../../assets/mail_icon.svg'
-import location_icon from '../../../assets/location_icon.svg'
-import call_icon from '../../../assets/call_icon.svg'
-import { FaInstagram, FaFacebook, FaGithub, FaLinkedin , FaWhatsapp } from 'react-icons/fa'; 
+import { FiArrowUpRight, FiCheck, FiPhone, FiFileText } from 'react-icons/fi'
+import { FaInstagram, FaGithub, FaLinkedinIn, FaWhatsapp, FaTiktok } from 'react-icons/fa6'
 
 const Contact = () => {
+  const [copied, setCopied] = useState(false)
+  const emailAddress = 'leonshireku@gmail.com'
+  const resumeUrl = 'https://docs.google.com/document/d/1ysB4CDrRh2jZUjOp3PFblqdg8njHe-kTuuGXMdi2ZNQ/edit?usp=sharing'
+
+  const handleContactClick = () => {
+    if (navigator?.clipboard?.writeText) {
+      navigator.clipboard.writeText(emailAddress)
+    } else {
+      const textArea = document.createElement('textarea')
+      textArea.value = emailAddress
+      document.body.appendChild(textArea)
+      textArea.select()
+      document.execCommand('copy')
+      document.body.removeChild(textArea)
+    }
+
+    setCopied(true)
+    setTimeout(() => {
+      setCopied(false)
+    }, 2800)
+  }
+
   return (
-    <div id='contact' className='contact'>
-        <div className="contact-title">
-            <h1 data-aos="fade-up">Get in touch</h1>
-            <img data-aos="fade-up" src={theme_pattern} alt="" />
-        </div>
-        <section className="contact-section">
-      
+    <section id="contact" className="contact-canvas-section">
+      {/* Editorial Watermark Header matching project theme */}
+      <div className="contact-header" data-aos="fade-up">
+        <span className="contact-watermark" aria-hidden="true">
+          CONTACT
+        </span>
+        <h2 className="contact-main-title">/GET IN TOUCH</h2>
+      </div>
 
-      <div className="contact-container">
-        
-        <div className="contact-info">
-          <h1  data-aos="fade-up"className="accent-text">Let's talk</h1>
-          <p data-aos="fade-left"className='lets-talk'>
-            I'm always available to be of help to you and your business. 
-            Feel free to reach out and send your inquiries and proposals. 
-            Let's work together and make impact one project at a time.
+      {/* Atmospheric Cloud Canvas */}
+      <div className="contact-atmospheric-stage" data-aos="fade-up" data-aos-delay="150">
+        <div className="contact-content-center">
+          {/* Main Statement Heading */}
+          <h2 className="contact-hero-heading">
+            HAVE A PROJECT IN MIND?
+          </h2>
+
+          {/* Subtext description */}
+          <p className="contact-hero-subtext">
+            Together, we can create something clear and impactful. Let’s collaborate to bring our ideas to life in a way that resonates with everyone.
           </p>
-          
-<div data-aos="zoom-in" className="social-icons">
-    <a href="https://www.instagram.com/leon.nelson.121?igsh=MWFhcTJsazNpZGFkeA==" target="_blank" rel="noopener noreferrer" className="social-link">
-        <FaInstagram size={30} />
-    </a>
-    <a href="https://www.facebook.com/share/1Gt78JbMaw/" target="_blank" rel="noopener noreferrer" className="social-link">
-        <FaFacebook size={30} />
-    </a>
-    <a href="https://github.com/leonokumu254 " target="_blank" rel="noopener noreferrer" className="social-link">
-        <FaGithub size={30} />
-    </a>
-    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-link">
-        <FaLinkedin size={30} />
-    </a>
-    <a href="https://whatsapp.com" target="_blank" rel="noopener noreferrer" className="social-link">
-        <FaWhatsapp size={30} />
-    </a>
-</div>
-         
-          
-          <div  data-aos="fade-up"className="info-details">
-            <div className="info-item">
-              <img src={mail_icon} alt="mail icon"/><p>leonshireku@gmail.com</p>
-            </div>
-            <div className="info-item">
-              <img src={call_icon} alt="call icon" /> <p>+254-741-766-710</p>
-            </div>
-            <div className="info-item">
-              <img src={location_icon} alt="location icon"/>
-              <p>Kenya</p>
-            </div>
-          </div>
 
-          
+          {/* Centered Action Buttons: Contact Me & Call Me */}
+          <div className="contact-cta-wrapper">
+            <a
+              href={`mailto:${emailAddress}`}
+              className="contact-primary-btn"
+              onClick={handleContactClick}
+              aria-label={`Send email to ${emailAddress}`}
+            >
+              <span>{copied ? 'Copied to clipboard! ✓' : 'Contact Me'}</span>
+              {!copied && <FiArrowUpRight className="contact-btn-arrow" />}
+            </a>
+
+            <a
+              href="tel:+254741766710"
+              className="contact-secondary-btn"
+              aria-label="Call Leon Nelson directly at +254 741 766 710"
+            >
+              <FiPhone className="contact-btn-phone-icon" />
+              <span>Call Me</span>
+              <FiArrowUpRight className="contact-btn-arrow" />
+            </a>
+          </div>
         </div>
 
-      
-      
-      <form data-aos="fade-up" className="contact-form" onSubmit={(e) => e.preventDefault()}>
-          <div className="form-row">
-            <div className="input-group">
-              <label>Your Name</label>
-              <input type="text" placeholder="Enter your name" />
-            </div>
-            <div className="input-group">
-              <label>Your Email</label>
-              <input type="email" placeholder="Enter your email" />
-            </div>
+        {/* Floating Bottom Pill Badges */}
+        <div className="contact-bottom-pills-row" data-aos="fade-up" data-aos-delay="250">
+          {/* Profile Pill with Avatar */}
+          <div className="contact-profile-pill">
+            <img
+              src="/picha.png"
+              alt="Leon Nelson"
+              className="contact-profile-avatar"
+            />
+            <span className="contact-profile-name">Leon Nelson</span>
           </div>
 
-          <div className="input-group">
-            <label>Write your message here</label>
-            <textarea placeholder="Enter your message" rows="6"></textarea>
-          </div>
+          {/* Resume Pill */}
+          <a
+            href={resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="contact-platform-pill contact-resume-pill"
+            aria-label="View Leon Nelson's Resume"
+          >
+            <FiFileText className="pill-platform-icon resume-icon" />
+            <span>Resume / CV</span>
+            <FiArrowUpRight className="pill-arrow-sm" />
+          </a>
 
-          <button type="submit" className="submit-btn">
-            Submit now
-          </button>
-        </form>
+          {/* Platform Pills */}
+          <a
+            href="https://github.com/leonokumu254"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="contact-platform-pill"
+          >
+            <FaGithub className="pill-platform-icon" />
+            <span>GitHub</span>
+          </a>
+
+          <a
+            href="https://www.instagram.com/leon.nelson.121"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="contact-platform-pill"
+          >
+            <FaInstagram className="pill-platform-icon" />
+            <span>Instagram</span>
+          </a>
+
+          <a
+            href="https://www.tiktok.com/@nelson_leon6?is_from_webapp=1&sender_device=pc"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="contact-platform-pill"
+            aria-label="TikTok"
+          >
+            <FaTiktok className="pill-platform-icon" />
+            <span>TikTok</span>
+          </a>
+
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="contact-platform-pill"
+          >
+            <FaLinkedinIn className="pill-platform-icon" />
+            <span>LinkedIn</span>
+          </a>
+
+          <a
+            href="https://wa.me/254741766710"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="contact-platform-pill"
+          >
+            <FaWhatsapp className="pill-platform-icon whatsapp-icon" />
+            <span>WhatsApp</span>
+          </a>
+        </div>
       </div>
     </section>
-
-      </div>
-      
   )
 }
-export default Contact;
 
-
+export default Contact

@@ -20,7 +20,7 @@ const Navbar = () => {
         setIsScrolled(false)
       }
 
-      const sections = ['home', 'work', 'services', 'about', 'contact']
+      const sections = ['home', 'about', 'services', 'work', 'contact']
       const scrollPos = window.scrollY + 250
 
       sections.forEach((section) => {
@@ -43,15 +43,15 @@ const Navbar = () => {
     <header className={`modern-nav-wrapper ${isScrolled ? 'scrolled' : ''}`}>
       <nav className="modern-nav-container">
 
-        {/* Center: Nav links with count badges */}
+        {/* Center: Nav links in matching page order */}
         <ul className="nav-links-desktop">
           <li>
             <AnchorLink
-              className={`nav-link-item ${activeSection === 'work' ? 'active' : ''}`}
-              href="#work"
+              className={`nav-link-item ${activeSection === 'about' ? 'active' : ''}`}
+              href="#about"
               offset={80}
             >
-              <span>Work</span>
+              <span>About</span>
             </AnchorLink>
           </li>
           <li>
@@ -60,18 +60,16 @@ const Navbar = () => {
               href="#services"
               offset={80}
             >
-              <span>Service</span>
-               
+              <span>Services</span>
             </AnchorLink>
           </li>
           <li>
             <AnchorLink
-              className={`nav-link-item ${activeSection === 'about' ? 'active' : ''}`}
-              href="#about"
+              className={`nav-link-item ${activeSection === 'work' ? 'active' : ''}`}
+              href="#work"
               offset={80}
             >
-              <span>Experience</span>
-               
+              <span>Projects</span>
             </AnchorLink>
           </li>
           <li>
@@ -85,8 +83,19 @@ const Navbar = () => {
           </li>
         </ul>
 
-        {/* Right: Let's Talk CTA button */}
+        {/* Right: Resume Link & Let's Talk CTA button */}
         <div className="nav-cta-wrapper">
+          <a
+            href="https://docs.google.com/document/d/1ysB4CDrRh2jZUjOp3PFblqdg8njHe-kTuuGXMdi2ZNQ/edit?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nav-resume-btn"
+            aria-label="View Leon Nelson's Resume"
+          >
+            <span>Resume</span>
+            <FiArrowUpRight className="nav-resume-arrow" />
+          </a>
+
           <AnchorLink className="nav-cta-btn" href="#contact" offset={80}>
             <span>Let's Talk</span>
             <FiArrowUpRight className="nav-cta-arrow" />
@@ -110,11 +119,11 @@ const Navbar = () => {
           <li>
             <AnchorLink
               className="nav-link-item-mobile"
-              href="#work"
+              href="#about"
               offset={60}
               onClick={() => setIsMenuOpen(false)}
             >
-              <span>Work</span>
+              <span>About</span>
             </AnchorLink>
           </li>
           <li>
@@ -124,17 +133,17 @@ const Navbar = () => {
               offset={60}
               onClick={() => setIsMenuOpen(false)}
             >
-              <span>Service</span>
+              <span>Services</span>
             </AnchorLink>
           </li>
           <li>
             <AnchorLink
               className="nav-link-item-mobile"
-              href="#about"
+              href="#work"
               offset={60}
               onClick={() => setIsMenuOpen(false)}
             >
-              <span>Experience</span>
+              <span>Projects</span>
             </AnchorLink>
           </li>
           <li>
@@ -150,6 +159,17 @@ const Navbar = () => {
         </ul>
 
         <div className="mobile-drawer-footer">
+          <a
+            href="https://docs.google.com/document/d/1ysB4CDrRh2jZUjOp3PFblqdg8njHe-kTuuGXMdi2ZNQ/edit?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nav-resume-btn mobile-resume-btn"
+            aria-label="View Leon Nelson's Resume"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            <span>Resume / CV</span>
+            <FiArrowUpRight className="nav-resume-arrow" />
+          </a>
           <AnchorLink
             className="nav-cta-btn mobile-cta-btn"
             href="#contact"
