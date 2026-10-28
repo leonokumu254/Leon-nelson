@@ -79,71 +79,6 @@
   font-weight: 400;
 }
 
-/* Core Pillars Grid */
-.about-pillars-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  width: 100%;
-  max-width: 960px;
-  margin: 8px 0 12px 0;
-}
-
-.about-pillar-card {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  border-radius: 18px;
-  padding: 24px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.about-pillar-card:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: var(--color-cobalt);
-  transform: translateY(-3px);
-  box-shadow: 0 16px 36px rgba(0, 71, 255, 0.22);
-}
-
-.pillar-icon-wrapper {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: rgba(0, 71, 255, 0.18);
-  border: 1px solid rgba(0, 71, 255, 0.35);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 2px;
-}
-
-.pillar-icon {
-  font-size: 20px;
-  color: #5d93ff;
-}
-
-.pillar-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 16.5px;
-  font-weight: 700;
-  color: #ffffff;
-  letter-spacing: -0.01em;
-  margin: 0;
-}
-
-.pillar-desc {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 13.5px;
-  line-height: 1.62;
-  color: #cbd5e1;
-  margin: 0;
-}
-
 /* Dedicated Resume / CV Action Button */
 .about-resume-action {
   display: flex;
@@ -274,7 +209,7 @@
 
 @media (max-width: 900px) {
   .about-section-wrapper {
-    padding: 80px 0;
+    padding: 56px 0 60px 0;
   }
 
   .about {
@@ -289,15 +224,6 @@
   .about-para {
     font-size: 15.5px;
     line-height: 1.75;
-  }
-
-  .about-pillars-grid {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-
-  .about-pillar-card {
-    padding: 20px 18px;
   }
 
   .tech-grid {

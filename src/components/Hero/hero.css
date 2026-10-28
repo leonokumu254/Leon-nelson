@@ -291,14 +291,13 @@
 
 @media (max-width: 860px) {
   .hero-fullscreen-section {
-    min-height: 100vh;
-    min-height: 100svh;
+    min-height: auto;
     height: auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding-top: 80px;
+    padding-top: 78px;
     padding-bottom: 24px;
     overflow-x: hidden;
     position: relative;
