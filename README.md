@@ -1,8 +1,9 @@
-# ⚡ Leon Nelson — Full-Stack Software Engineer & Digital Strategist
+# ⚡ Leon Nelson Shireku — Full-Stack Software Engineer & Digital Strategist
 
 [![Live Portfolio](https://img.shields.io/badge/Live_Portfolio-leonshireku.me-0047FF?style=for-the-badge&logo=googlechrome&logoColor=white)](https://leonshireku.me/)
 [![Lighthouse Score](https://img.shields.io/badge/Lighthouse-100%20SEO%20%7C%20100%20Best%20Practices-success?style=for-the-badge&logo=lighthouse&logoColor=white)](https://leonshireku.me/)
 [![Agentic Web](https://img.shields.io/badge/Agentic_Browsing-4%2F4%20Verified-blueviolet?style=for-the-badge&logo=openai&logoColor=white)](https://leonshireku.me/llms.txt)
+[![Location](https://img.shields.io/badge/Location-Nairobi%2C%20Kenya-101010?style=for-the-badge&logo=googlemaps&logoColor=white)](https://maps.google.com/?q=Nairobi,Kenya)
 
 A high-performance, modern portfolio engineered with React, Vite, and bespoke CSS architecture. Designed with a luxury editorial aesthetic, interactive micro-animations, and full-spectrum search engine & AI agent discoverability.
 
@@ -16,11 +17,62 @@ A high-performance, modern portfolio engineered with React, Vite, and bespoke CS
 
 ---
 
+## 👤 Who is Leon Shireku?
+
+> **"Code without business impact is an expensive toy. Marketing without a resilient technical engine is a leaky funnel. I engineer both."**
+
+**Leon Nelson Shireku** is a Nairobi-based **Full-Stack Software Engineer & Digital Growth Strategist**. He specializes in bridging high-level software architecture with aggressive commercial outcomes—building web platforms that load instantaneously, rank natively on Google, and convert casual visitors into loyal, paying clients.
+
+Rather than treating engineering and digital marketing as isolated disciplines, Leon operates as a **dual-threat technical partner** for high-growth businesses and ambitious founders worldwide.
+
+```
+       ┌────────────────────────────────────────────────────────┐
+       │                 LEON SHIREKU'S FLYWHEEL                │
+       └───────────────────────────┬────────────────────────────┘
+                                   │
+         ┌─────────────────────────┴─────────────────────────┐
+         ▼                                                   ▼
+┌─────────────────────────────────┐       ┌─────────────────────────────────┐
+│     TECHNICAL ENGINEERING       │       │    GROWTH & MARKET ACQUISITION  │
+├─────────────────────────────────┤       ├─────────────────────────────────┤
+│ • React, Next.js & TypeScript   │ ◄───► │ • Data-Driven Technical SEO     │
+│ • Node.js & Express REST APIs   │       │ • Core Web Vitals Dominance     │
+│ • Docker & Automated CI/CD      │       │ • High-Conversion User Funnels  │
+│ • Payment Gateways & STK Push   │       │ • Organic Content & Brand Reach │
+└─────────────────────────────────┘       └─────────────────────────────────┘
+                                   │
+                                   ▼
+       ┌────────────────────────────────────────────────────────┐
+       │     TANGIBLE ROI: Direct Bookings, Zero Recurring      │
+       │        CMS Fees & Automated Hands-Off Operations       │
+       └────────────────────────────────────────────────────────┘
+```
+
+### 🧠 The Core Philosophy
+1. **Zero-Subscription Independence**: Eliminating recurring third-party CMS and SaaS overhead by architecting custom, client-owned back offices and booking portals.
+2. **Sub-Second Performance**: Engineering for 90+ Core Web Vitals, Lanczos-optimized media pipelines, and instant initial paint.
+3. **Frictionless Real-World Automation**: Connecting digital interfaces to real-world operations—such as automated M-Pesa STK push payments triggering instant self-check-in door lockbox codes and Wi-Fi credential dispatch.
+
+### 📊 Quick Facts
+
+| Dimension | Details |
+| :--- | :--- |
+| **Full Name** | Leon Nelson Shireku |
+| **Known Online As** | Leon Shireku / `@leonshireku` |
+| **Core Discipline** | Full-Stack Web Development, DevOps & Technical SEO |
+| **Geographic Base** | Nairobi, Kenya *(Available Globally for Remote Collaboration & Retainers)* |
+| **Client Portfolio** | Safari & Hospitality Platforms, Tour Booking Engines, Enterprise Web Apps |
+| **Primary Arsenal** | React, Next.js, Node.js, Python, PostgreSQL, Docker, Tailwind/Vanilla CSS |
+| **Curriculum Vitae** | [Verified Google Docs CV](https://docs.google.com/document/d/1ysB4CDrRh2jZUjOp3PFblqdg8njHe-kTuuGXMdi2ZNQ/edit?usp=sharing) |
+
+---
+
 ## 🌟 Key Features & Architecture
 
 ### 1. 🔠 Character Staggered Blur & Scramble Reveal
 - Custom character-by-character unblur animation using CSS variables (`--char-index`), hardware-accelerated transforms, and Gaussian blurs (`filter: blur(14px) → blur(0px)`).
 - On page load and interactive hover, letters dynamically cycle through cryptographic tech glyphs (`01#X_@$8&*`) before snapping into razor-sharp typography.
+- **Automatic Periodic Re-Reveal**: Features a graceful ~9.1s interval that automatically replays the scramble cycle after completion, keeping the hero section visually alive.
 - Fully accessible via semantic `<h1>` with `aria-label` for screen readers and AI crawlers.
 
 ### 2. 🎰 Kinetic Role Slot-Machine Reel
@@ -106,7 +158,7 @@ Leon-Nelson/
 ### Installation
 ```bash
 # 1. Clone repository
-git clone https://github.com/leonokumu254/Leon-nelson.git
+git clone https://github.com/leonshireku/Leon-nelson.git
 cd Leon-nelson
 
 # 2. Install dependencies
@@ -132,11 +184,11 @@ npm run preview
 - **Live Website**: [leonshireku.me](https://leonshireku.me/)
 - **Email**: [leonshireku@gmail.com](mailto:leonshireku@gmail.com)
 - **Phone / WhatsApp**: [+254 741 766 710](https://wa.me/254741766710)
-- **GitHub**: [@leonokumu254](https://github.com/leonokumu254)
+- **GitHub**: [@leonshireku](https://github.com/leonshireku)
 - **TikTok**: [@nelson_leon6](https://www.tiktok.com/@nelson_leon6?is_from_webapp=1&sender_device=pc)
 - **Instagram**: [@leon.nelson.121](https://www.instagram.com/leon.nelson.121)
 - **Resume / CV**: [Google Docs Curriculum Vitae](https://docs.google.com/document/d/1ysB4CDrRh2jZUjOp3PFblqdg8njHe-kTuuGXMdi2ZNQ/edit?usp=sharing)
 
 ---
 
-&copy; 2026 Leon Nelson. All rights reserved.
+&copy; 2026 Leon Nelson Shireku. All rights reserved.

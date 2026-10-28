@@ -97,6 +97,7 @@ const StaggeredChar = ({ char, index, isHovered }) => {
 const Hero = () => {
   const [activeIndex, setActiveIndex] = useState(0)
   const [hoverCount, setHoverCount] = useState(0)
+  const [cycleKey, setCycleKey] = useState(0)
 
   // Slot machine vertical wheel roll timer
   useEffect(() => {
@@ -107,12 +108,22 @@ const Hero = () => {
     return () => clearInterval(interval)
   }, [])
 
+  // Periodically repeat the Leon Nelson animation sometime after completion
+  useEffect(() => {
+    // ~2.6s animation duration + ~6.5s delay after completion = repeats every 9.1s
+    const repeatTimer = setInterval(() => {
+      setCycleKey((prev) => prev + 1)
+    }, 9100)
+
+    return () => clearInterval(repeatTimer)
+  }, [])
+
   const translateYPercent = activeIndex * (100 / roleItems.length)
 
   const renderStaggeredChars = (text, startIndex = 0) => {
     return text.split('').map((char, i) => (
       <StaggeredChar
-        key={`${startIndex + i}-${char}`}
+        key={`${cycleKey}-${startIndex + i}-${char}`}
         char={char}
         index={startIndex + i}
         isHovered={hoverCount > 0}
@@ -213,7 +224,7 @@ const Hero = () => {
         data-aos-delay="1050"
       >
         <a
-          href="https://github.com/leonokumu254"
+          href="https://github.com/leonshireku"
           target="_blank"
           rel="noopener noreferrer"
           className="hero-social-pill"

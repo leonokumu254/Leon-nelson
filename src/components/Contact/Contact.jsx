@@ -100,7 +100,7 @@ const Contact = () => {
 
           {/* Platform Pills */}
           <a
-            href="https://github.com/leonokumu254"
+            href="https://github.com/leonshireku"
             target="_blank"
             rel="noopener noreferrer"
             className="contact-platform-pill"
