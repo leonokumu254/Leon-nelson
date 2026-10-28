@@ -1,118 +1,66 @@
 const Projects_Data = [
   {
-    id: "lulu-aurelian",
-    title: "Lulu Aurelian — Luxury E-Commerce & Fine Jewelry",
-    subtitle: "High-conversion digital flagship with sub-second page loads, custom checkout architecture, and organic search optimization.",
-    category: "Real Project",
-    badge: "REAL PROJECT",
-    isCaseStudy: true,
-    image: "/projects/luluaurelian.jpg",
-    tags: ["E-Commerce", "Next.js", "SEO Dominance", "Stripe API"],
-    metrics: [
-      { label: "Organic Growth", value: "+240%" },
-      { label: "Avg LCP Speed", value: "0.6s" },
-      { label: "Mobile Checkout", value: "+68%" }
-    ],
-    overview: "Lulu Aurelian is an exclusive luxury brand specializing in bespoke fine jewelry. The objective was to create an editorial digital flagship that mirrors the atelier's craftsmanship while capturing high-value international transactions.",
-    challenge: "The legacy boutique platform suffered from sluggish load times (>4.2s), high cart abandonment due to cumbersome multi-step checkouts, and virtually zero organic search presence on competitive luxury queries.",
-    solution: [
-      "Engineered a bespoke Next.js front-end with optimized modern image pipelines and fluid editorial micro-interactions.",
-      "Integrated a frictionless headless checkout workflow with Apple Pay, Google Pay, and localized multi-currency support.",
-      "Conducted a comprehensive technical SEO overhaul with rich product schema, lightning-fast Core Web Vitals, and keyword authority architecture.",
-      "Configured high-security cloud VPS infrastructure with DDoS protection and automated backup routines."
-    ],
-    results: [
-      "+240% organic search traffic growth within the first 90 days post-launch.",
-      "0.6s Largest Contentful Paint (LCP), delivering a top-tier Google speed score.",
-      "68% increase in mobile checkout completion rate with frictionless 1-click payments."
-    ],
-    techStack: ["Next.js", "React", "Node.js", "Stripe API", "PostgreSQL", "Cloud VPS", "Technical SEO"]
-  },
-  {
     id: "supreme-adventures",
-    title: "Supreme Adventures — Safari & Wilderness Booking Engine",
-    subtitle: "End-to-end expedition booking platform featuring dynamic itinerary builders, multi-currency deposits, and automated booking notifications.",
+    title: "Supreme Adventures — Client Safari Platform & Booking Engine",
+    subtitle: "Custom safari booking platform and private staff portal built to help an East African tour operator rank on Google and manage direct customer bookings.",
     category: "Real Project",
-    badge: "REAL PROJECT",
     isCaseStudy: true,
-    image: "/projects/supremeadventures.jpg",
-    tags: ["Safari Platform", "Custom Booking", "Full-Stack", "Conversion Rate"],
-    metrics: [
-      { label: "Inbound Leads", value: "+320%" },
-      { label: "Admin Time", value: "-85%" },
-      { label: "Uptime", value: "99.9%" }
-    ],
-    overview: "Supreme Adventures curates premier wildlife safaris, mountaineering expeditions, and luxury bush retreats across East Africa for international safari travelers.",
-    challenge: "Inquiries were scattered across unmanaged WhatsApp threads and slow email exchanges. The absence of real-time expedition availability and instant deposit processing led to lost high-ticket bookings.",
+    image: "/projects/supreme_adventures_mockup.png",
+    video: "", // e.g. "/projects/supremeadventures.mp4"
+    tags: ["SEO", "Client Solution", "Tour Bookings", "Private Staff Portal", "Full-Stack"],
+    overview: "Supreme Adventures was custom-built for an active East African safari company to solve real business hurdles. Instead of paying hefty commissions to third-party travel directories, the client now attracts high-value international travelers directly through Google search. The platform includes a private, password-protected staff portal where the owner can manage safari itineraries and customer inquiries from one central hub—with zero monthly software subscription fees.",
+    challenge: {
+      problem: "The tour company had almost zero visibility on Google, forcing them to rely heavily on expensive third-party travel directories that charged high commissions. Internally, incoming customer inquiries were scattered across WhatsApp chats and personal emails, leading to slow replies, missed bookings, and constant confusion when updating tour prices or dates.",
+      solution: "I built a fast, Google-optimized safari website that captures high-paying international travelers directly from search engines, paired with a simple private staff dashboard that organizes all tour packages and client inquiries in one place with no recurring fees."
+    },
     solution: [
-      "Architected a custom real-time reservation system with dynamic pricing, lodge inventory allocation, and automatic deposit receipts.",
-      "Built an interactive day-by-day expedition route visualizer that allows prospective travelers to explore daily itineraries and wildlife sightings.",
-      "Implemented automated booking workflows that issue vouchers, packing lists, and safari preparation guides directly to the traveler's inbox.",
-      "Optimized the technical structure for competitive travel queries (e.g., 'Serengeti Migration Luxury Safari') to capture high-intent organic visitors."
+      "Search Engine Optimization (SEO): Structured the entire website with clean code and search tags so Google ranks their safari packages for travelers searching for East African tours.",
+      "Engaging Traveler Experience: Designed easy-to-use safari pages with day-by-day itineraries, clear photo galleries, and simple inquiry forms that turn visitors into confirmed bookings.",
+      "Private Staff Admin Portal: Developed a secure, password-protected back office where staff can easily create, edit, or delete tour packages and review incoming customer inquiries in real time.",
+      "Zero-Subscription System: Built an independent system that removed the need for expensive third-party CMS subscriptions, giving the client 100% ownership and fast website performance."
     ],
-    results: [
-      "+320% surge in qualified inbound booking inquiries during peak season.",
-      "85% reduction in manual administrative communication for reservation staff.",
-      "99.9% platform availability maintained under surge traffic spikes."
-    ],
-    techStack: ["React", "Node.js", "Express", "PostgreSQL", "Custom Booking API", "SEO & CRO"]
+    techStack: [
+      "Search Engine Optimization (SEO)",
+      "Technical SEO & Google Schema",
+      "Mobile-First Responsive Design",
+      "JavaScript & Clean Code",
+      "Node.js & Express API",
+      "Secure Staff Authentication",
+      "Lightweight Database System"
+    ]
   },
   {
-    id: "royal-sports-club",
-    title: "Royal Sports Club — Athletic Club & Court Reservation Portal",
-    subtitle: "Comprehensive digital membership and court reservation ecosystem serving members, coaches, and facility management.",
+    id: "lulu-aurelian",
+    title: "Lulu Aurelian Estate — Luxury Hospitality & Automated Guest Portal",
+    subtitle: "Modern vacation rental platform with automatic STK push payments, smart self-check-in door codes, and a live dashboard for property managers.",
     category: "Real Project",
-    badge: "REAL PROJECT",
     isCaseStudy: true,
-    image: "/projects/royalsportsclub.jpg",
-    tags: ["Membership Portal", "Court Reservation API", "Real-Time Sync", "Node.js & Postgres"],
-    metrics: [
-      { label: "Monthly Bookings", value: "1,200+" },
-      { label: "Double Bookings", value: "0" },
-      { label: "Member Renewal", value: "+45%" }
-    ],
-    overview: "Royal Sports Club is a premier athletic sanctuary offering private tennis courts, squash arenas, Olympic training pools, and exclusive member wellness programs.",
-    challenge: "The facility relied on manual telephone bookings and paper rosters, leading to frequent court double-booking disputes, long front-desk queues, and low digital engagement among members.",
+    image: "/projects/lulu_aurelian_mockup.jpg",
+    video: "", // e.g. "/projects/luluaurelian.mp4"
+    tags: ["Hospitality Tech", "STK Push", "Guest Portal", "Automation", "Full-Stack"],
+    overview: "Lulu Aurelian Estate is a custom hospitality platform engineered to run vacation rentals on complete autopilot. It gives guests a frictionless self-service experience—handling Google sign-in, instant STK push payments, and automatic delivery of door lockbox codes, Wi-Fi credentials, and location pins immediately after payment. For the property owner, it transforms daily operations with a live management portal that updates bookings, room rates, and guest records in real time with zero manual work.",
+    challenge: {
+      problem: "The property owner was spending hours every day checking payments manually, typing out directions, and answering late-night messages from guests asking for door codes and Wi-Fi passwords. Coordinating bookings manually across phone calls and WhatsApp also created a constant risk of double-bookings.",
+      solution: "I engineered a self-service guest platform that automates the entire stay. Guests pay effortlessly via an automatic STK push prompt, immediately receive their private door code and arrival instructions, and the property owner's calendar updates instantly in real time with zero manual effort."
+    },
     solution: [
-      "Developed a real-time court reservation grid with optimistic concurrency locks to guarantee zero double-bookings.",
-      "Engineered a dedicated member portal for dues renewals, guest pass issuance, and personal coach scheduling.",
-      "Designed an automated SMS & email notification system for court reminders, weather delay alerts, and club announcements.",
-      "Created a staff administration dashboard to monitor court usage analytics, peak facility hours, and membership trends."
+      "Effortless Guest Portal & Google Sign-In: Guests can sign in with one click using Google, view their upcoming trips, check house rules, and earn a free night reward after every 10 stays.",
+      "Instant STK Push Payment: Guests simply enter their phone number to receive a direct payment prompt on their phone with a live countdown timer, plus a quick backup code option.",
+      "Smart Self-Check-In & Automated Details: As soon as payment is confirmed, the system automatically emails the guest their unique door lockbox code, Wi-Fi details, Google Maps pin, and an arrival reminder.",
+      "Live Property Manager Dashboard: A simple control screen where the owner can update nightly rates, see confirmed bookings, view earnings, and manage cancellations in real time.",
+      "Fast, Reliable & Mobile-Friendly: Built to load instantly on all smartphones, ensuring guests and staff experience smooth, hassle-free booking 24/7."
     ],
-    results: [
-      "Over 1,200 monthly court reservations handled seamlessly through self-service.",
-      "Zero double-booking incidents recorded since platform deployment.",
-      "45% faster membership renewal cycle via integrated automated payment reminders."
-    ],
-    techStack: ["React", "Node.js", "PostgreSQL", "WebSockets", "Payment Gateway", "Tailored UI"]
-  },
-  {
-    id: "spenso-ai",
-    title: "Spenso — Redefining Personal Finance & Cashflow with AI",
-    subtitle: "Predictive budgeting intelligence and automated wealth telemetry engine designed for modern capital allocators.",
-    category: "Exploration",
-    badge: "EXPLORATION",
-    isCaseStudy: true,
-    image: "/projects/spenso_analytics.jpg",
-    tags: ["FinTech", "Data Visualization", "AI Insights", "Mobile First"],
-    metrics: [
-      { label: "Animation Rate", value: "120 FPS" },
-      { label: "Interaction Latency", value: "<50ms" },
-      { label: "Community", value: "Featured" }
-    ],
-    overview: "A forward-thinking FinTech exploration exploring the intersection of real-time financial telemetry, algorithmic cashflow forecasting, and tactile dark-mode UI design.",
-    challenge: "Traditional personal finance tools are cluttered with confusing tables, static monthly budgets, and lack proactive insights on upcoming spending velocity.",
-    solution: [
-      "Designed a sleek dark glassmorphic interface utilizing high-contrast data visualization and smooth SVG charts.",
-      "Prototyped proactive financial health metrics with predictive cash burn forecasts and customizable category widgets.",
-      "Optimized interaction responsiveness to achieve ultra-fluid 120 FPS chart scrubbing on modern touch devices."
-    ],
-    results: [
-      "Showcased across leading design communities for innovative FinTech UX.",
-      "Sub-50ms interaction latency with zero UI thread freezing.",
-      "Demonstrated cutting-edge mobile-first financial interaction paradigms."
-    ],
-    techStack: ["React", "HTML5 Canvas / SVG", "Modern CSS", "Data Vis Engine"]
+    techStack: [
+      "React & Modern UI",
+      "STK Push Payment Integration",
+      "Node.js & Express API",
+      "MySQL Database",
+      "Google Sign-In",
+      "Automated Email & SMS Alerts",
+      "Google Maps Location Pin",
+      "Live Dashboard Sync",
+      "Search Engine Optimization (SEO)"
+    ]
   }
 ];
 

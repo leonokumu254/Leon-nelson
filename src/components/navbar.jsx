@@ -42,13 +42,6 @@ const Navbar = () => {
   return (
     <header className={`modern-nav-wrapper ${isScrolled ? 'scrolled' : ''}`}>
       <nav className="modern-nav-container">
-        {/* Left: Available for New Project Badge */}
-        <div className="nav-status-badge">
-          <span className="status-dot">
-            <span className="status-ping"></span>
-          </span>
-          <span className="status-text">Available for Work</span>
-        </div>
 
         {/* Center: Nav links with count badges */}
         <ul className="nav-links-desktop">
@@ -112,14 +105,6 @@ const Navbar = () => {
 
       {/* Mobile Drawer Menu */}
       <div className={`nav-mobile-drawer ${isMenuOpen ? 'open' : ''}`}>
-        <div className="mobile-drawer-header">
-          <div className="nav-status-badge mobile-badge">
-            <span className="status-dot">
-              <span className="status-ping"></span>
-            </span>
-            <span className="status-text">Available for Work</span>
-          </div>
-        </div>
 
         <ul className="nav-links-mobile">
           <li>

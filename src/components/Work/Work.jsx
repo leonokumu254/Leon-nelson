@@ -1,18 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import './work.css'
 import Projects_Data from '../../../assets/projects_data.js'
-import { FiArrowUpRight, FiX, FiCheckCircle, FiZap, FiLayers } from 'react-icons/fi'
-
-const categories = ['All', 'Real Project', 'Exploration']
+import { FiArrowUpRight, FiX } from 'react-icons/fi'
 
 const Work = () => {
-  const [activeFilter, setActiveFilter] = useState('All')
   const [selectedCaseStudy, setSelectedCaseStudy] = useState(null)
-
-  // Filter projects based on active tab
-  const filteredProjects = activeFilter === 'All'
-    ? Projects_Data
-    : Projects_Data.filter(p => p.category === activeFilter)
 
   // Close modal on Escape key press
   useEffect(() => {
@@ -41,22 +33,6 @@ const Work = () => {
           PORTFOLIO
         </span>
         <h2 className="work-main-title">/SELECTED WORK</h2>
-      </div>
-
-      {/* Sub-header navigation row with filter tabs & CTA */}
-      <div className="work-controls-row" data-aos="fade-up" data-aos-delay="150">
-        <div className="work-filter-tabs">
-          {categories.map((cat, idx) => (
-            <button
-              key={idx}
-              className={`work-filter-btn ${activeFilter === cat ? 'active' : ''}`}
-              onClick={() => setActiveFilter(cat)}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
         <a href="#contact" className="work-all-btn">
           <span>Get in Touch</span>
           <FiArrowUpRight className="work-all-arrow" />
@@ -64,12 +40,26 @@ const Work = () => {
       </div>
 
       {/* Projects Grid */}
-      <div className="work-grid" data-aos="fade-up" data-aos-delay="250">
-        {filteredProjects.map((project, index) => (
+      <div className="work-grid" data-aos="fade-up" data-aos-delay="200">
+        {Projects_Data.map((project, index) => (
           <article
             key={project.id}
             className="project-card"
             onClick={() => setSelectedCaseStudy(project)}
+            onMouseEnter={(e) => {
+              const video = e.currentTarget.querySelector('.project-video')
+              if (video) {
+                video.currentTime = 0
+                video.play().catch(() => {})
+              }
+            }}
+            onMouseLeave={(e) => {
+              const video = e.currentTarget.querySelector('.project-video')
+              if (video) {
+                video.pause()
+                video.currentTime = 0
+              }
+            }}
             tabIndex={0}
             role="button"
             aria-label={`Open case study for ${project.title}`}
@@ -88,41 +78,32 @@ const Work = () => {
                 className="project-image"
                 loading="lazy"
               />
-              <div className="project-image-overlay"></div>
 
-              {/* Top Category Badge */}
-              <div className="project-badge-pill">
-                {project.badge}
-              </div>
+              {project.video && (
+                <video
+                  className="project-video"
+                  src={project.video}
+                  muted
+                  loop
+                  playsInline
+                  preload="none"
+                  poster={project.image}
+                  aria-hidden="true"
+                />
+              )}
+
+              <div className="project-image-overlay"></div>
 
               {/* Hover Floating Action Button */}
               <div className="project-hover-action" aria-hidden="true">
                 <FiArrowUpRight className="project-action-icon" />
               </div>
-
-              {/* Quick Case Study Metric Banner */}
-              {project.metrics && project.metrics.length > 0 && (
-                <div className="project-highlight-badge">
-                  <FiZap className="highlight-zap" />
-                  <span>{project.metrics[0].value} {project.metrics[0].label}</span>
-                </div>
-              )}
             </div>
 
             {/* Card Meta Content */}
             <div className="project-info">
               <h3 className="project-title">{project.title}</h3>
               <p className="project-subtitle">{project.subtitle}</p>
-
-              {/* Metric Highlights Row */}
-              <div className="project-metrics-row">
-                {project.metrics?.map((m, mIdx) => (
-                  <div key={mIdx} className="metric-chip">
-                    <span className="metric-chip-value">{m.value}</span>
-                    <span className="metric-chip-label">{m.label}</span>
-                  </div>
-                ))}
-              </div>
 
               {/* Tags & Case Study CTA */}
               <div className="project-footer">
@@ -157,8 +138,7 @@ const Work = () => {
             {/* Modal Header */}
             <div className="case-study-modal-header">
               <div className="modal-header-meta">
-                <span className="modal-badge">{selectedCaseStudy.badge}</span>
-                <span className="modal-category-text">Case Study Overview</span>
+                <span className="modal-category-text">/ CASE STUDY</span>
               </div>
               <button
                 className="modal-close-btn"
@@ -188,61 +168,80 @@ const Work = () => {
                 </div>
               </div>
 
-              {/* Key Results Grid */}
-              <div className="modal-results-banner">
-                <h4 className="modal-subheading">
-                  <FiZap className="icon-blue" /> Key Measured Impact
-                </h4>
-                <div className="modal-results-grid">
-                  {selectedCaseStudy.metrics?.map((m, idx) => (
-                    <div key={idx} className="result-metric-box">
-                      <span className="result-metric-num">{m.value}</span>
-                      <span className="result-metric-name">{m.label}</span>
-                    </div>
-                  ))}
+              {/* Project Overview */}
+              {selectedCaseStudy.overview && (
+                <div className="modal-section-block">
+                  <h4 className="modal-subheading">
+                    <span className="subheading-slash">/</span> 01. OVERVIEW
+                  </h4>
+                  <p className="modal-text">{selectedCaseStudy.overview}</p>
                 </div>
-              </div>
+              )}
 
               {/* Client Brief & Challenge */}
-              <div className="modal-section-block">
-                <h4 className="modal-subheading">
-                  <FiLayers className="icon-blue" /> The Challenge
-                </h4>
-                <p className="modal-text">{selectedCaseStudy.challenge}</p>
-              </div>
+              {selectedCaseStudy.challenge && (
+                <div className="modal-section-block">
+                  <h4 className="modal-subheading">
+                    <span className="subheading-slash">/</span> 02. THE CHALLENGE
+                  </h4>
+                  <div className="modal-callout-box">
+                    {typeof selectedCaseStudy.challenge === "object" ? (
+                      <div className="modal-challenge-split">
+                        <div className="modal-challenge-item">
+                          <span className="modal-challenge-tag">The Problem Faced</span>
+                          <p className="modal-text">{selectedCaseStudy.challenge.problem}</p>
+                        </div>
+                        <div className="modal-challenge-divider"></div>
+                        <div className="modal-challenge-item">
+                          <span className="modal-challenge-tag">How I Solved It</span>
+                          <p className="modal-text">{selectedCaseStudy.challenge.solution}</p>
+                        </div>
+                      </div>
+                    ) : (
+                      <p className="modal-text">{selectedCaseStudy.challenge}</p>
+                    )}
+                  </div>
+                </div>
+              )}
 
               {/* Engineering & Digital Strategy */}
-              <div className="modal-section-block">
-                <h4 className="modal-subheading">
-                  <FiCheckCircle className="icon-blue" /> Solution & Architecture
-                </h4>
-                <ul className="modal-solution-list">
-                  {selectedCaseStudy.solution?.map((step, idx) => (
-                    <li key={idx} className="modal-solution-item">
-                      <span className="solution-bullet-dot"></span>
-                      <span>{step}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              {selectedCaseStudy.solution && (
+                <div className="modal-section-block">
+                  <h4 className="modal-subheading">
+                    <span className="subheading-slash">/</span> 03. SOLUTION & DELIVERABLES
+                  </h4>
+                  <ul className="modal-solution-list">
+                    {selectedCaseStudy.solution.map((step, idx) => (
+                      <li key={idx} className="modal-solution-item">
+                        <span className="solution-step-num">0{idx + 1}</span>
+                        <span className="solution-step-text">{step}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
 
               {/* Tech Stack & Tags */}
-              <div className="modal-section-block">
-                <h4 className="modal-subheading">Technologies & Deliverables</h4>
-                <div className="modal-tech-grid">
-                  {selectedCaseStudy.techStack?.map((tech, idx) => (
-                    <span key={idx} className="modal-tech-pill">
-                      {tech}
-                    </span>
-                  ))}
+              {selectedCaseStudy.techStack && (
+                <div className="modal-section-block">
+                  <h4 className="modal-subheading">
+                    <span className="subheading-slash">/</span> 04. TECH STACK & TOOLS
+                  </h4>
+                  <div className="modal-tech-grid">
+                    {selectedCaseStudy.techStack.map((tech, idx) => (
+                      <span key={idx} className="modal-tech-pill">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
 
               {/* Bottom CTA Bar */}
               <div className="modal-footer-cta">
                 <div className="modal-footer-text">
                   <h5>Ready to build something impactful?</h5>
-                  <p>Let's architect scalable engineering and organic growth for your brand.</p>
+                  <p>Let's collaborate on scalable engineering and strategic digital growth.</p>
                 </div>
                 <a
                   href="#contact"
