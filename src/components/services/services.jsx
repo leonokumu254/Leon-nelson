@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './services.css'
 import Services_Data from '../../../assets/services_data.js'
 import { FiArrowUpRight, FiX } from 'react-icons/fi'
+import AOS from 'aos'
 
 const Services = () => {
   // First service expanded by default matching the reference design
@@ -10,6 +11,11 @@ const Services = () => {
   const toggleService = (index) => {
     setExpandedIndex(expandedIndex === index ? null : index)
   }
+
+  // Refresh AOS when accordion row is toggled so the image animation triggers
+  useEffect(() => {
+    AOS.refresh()
+  }, [expandedIndex])
 
   return (
     <section id="services" className="services-section">
@@ -44,11 +50,21 @@ const Services = () => {
                   </div>
 
                   {service.s_image && (
-                    <div className="service-card-mockup-wrapper">
+                    <div
+                      className="service-card-mockup-wrapper"
+                      data-aos="fade-left"
+                      data-aos-duration="600"
+                      data-aos-delay="100"
+                    >
                       <img
                         src={service.s_image}
                         alt={`${service.s_name} preview mockup`}
-                        className="service-card-mockup-img"
+                        className={`service-card-mockup-img fit-${service.fit || 'cover'}`}
+                        style={{
+                          objectFit: service.fit || 'cover',
+                          backgroundColor: service.bg || 'transparent',
+                          padding: service.fit === 'contain' ? '12px' : '0'
+                        }}
                       />
                     </div>
                   )}

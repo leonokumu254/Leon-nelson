@@ -1,7 +1,7 @@
 import React from 'react'
 import './about.css'
 import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaPython, FaAngular, FaNodeJs } from 'react-icons/fa6'
-import { SiNextdotjs, SiPostgresql } from 'react-icons/si'
+import { SiNextdotjs, SiPostgresql, SiDocker } from 'react-icons/si'
 
 const techStack = [
   { name: 'HTML', icon: <FaHtml5 className="tech-icon html-icon" /> },
@@ -11,6 +11,7 @@ const techStack = [
   { name: 'Next.js', icon: <SiNextdotjs className="tech-icon next-icon" /> },
   { name: 'Node.js', icon: <FaNodeJs className="tech-icon node-icon" /> },
   { name: 'PostgreSQL', icon: <SiPostgresql className="tech-icon postgres-icon" /> },
+  { name: 'Docker / DevOps', icon: <SiDocker className="tech-icon docker-icon" /> },
   { name: 'Python', icon: <FaPython className="tech-icon python-icon" /> },
   { name: 'Angular', icon: <FaAngular className="tech-icon angular-icon" /> },
 ]
