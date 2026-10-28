@@ -5,7 +5,7 @@ const Projects_Data = [
     subtitle: "Custom safari booking platform and private staff portal built to help an East African tour operator rank on Google and manage direct customer bookings.",
     category: "Real Project",
     isCaseStudy: true,
-    image: "/projects/supreme_adventures_mockup.png",
+    image: "/projects/supreme_adventures_mockup.webp",
     video: "/projects/supreme_adventures.mp4",
     tags: ["SEO", "Client Solution", "Tour Bookings", "Private Staff Portal", "Full-Stack"],
     client: "Supreme Adventures Tour Operators",
@@ -39,7 +39,7 @@ const Projects_Data = [
     subtitle: "Modern vacation rental platform with automatic STK push payments, smart self-check-in door codes, and a live dashboard for property managers.",
     category: "Real Project",
     isCaseStudy: true,
-    image: "/projects/lulu_aurelian_mockup.jpg",
+    image: "/projects/lulu_aurelian_mockup.webp",
     video: "/projects/lulu_aurelian.mp4",// e.g. "/projects/luluaurelian.mp4" 
     tags: ["Hospitality Tech", "STK Push", "SEO & Marketing", "Social Media", "Automation"],
     client: "Lulu Aurelian Estate Limited ",

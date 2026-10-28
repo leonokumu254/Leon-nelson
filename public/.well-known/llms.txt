@@ -1,0 +1,25 @@
+# Leon Nelson — Full-Stack Software Engineer & Digital Strategist
+
+> Official portfolio, technical documentation, and service directory for Leon Nelson, specializing in high-performance web applications, cloud DevOps infrastructure, and data-driven SEO growth architecture.
+
+## Overview
+Leon Nelson is a Nairobi-based Software Engineer and Digital Marketer engineering scalable digital solutions for high-growth enterprises and ambitious startups globally.
+
+## Core Capabilities
+- [Full-Stack Web Development](https://leonshireku.me/#services): Production-ready web applications using React, Next.js, Node.js, and modern APIs.
+- [DevOps & Cloud Engineering](https://leonshireku.me/#services): CI/CD automation, Docker containerization, and cloud infrastructure reliability.
+- [SEO & Technical Optimization](https://leonshireku.me/#services): Data-driven search engine optimization, Core Web Vitals, and organic conversion funnels.
+- [Social Media Management](https://leonshireku.me/#services): Brand positioning, audience engagement, and multi-channel content strategy.
+
+## Featured Projects
+- [Supreme Adventures Platform](https://leonshireku.me/#work): High-performance booking and exploration platform for expedition tourism.
+- [Lulu & Aurelian Hospitality Platform](https://leonshireku.me/#work): Luxury hospitality management and direct guest reservation ecosystem.
+
+## Professional Experience & Qualifications
+- [Professional Resume / Curriculum Vitae](https://docs.google.com/document/d/1ysB4CDrRh2jZUjOp3PFblqdg8njHe-kTuuGXMdi2ZNQ/edit?usp=sharing): Comprehensive background, technical competencies, and career achievements.
+
+## Direct Contact & Profiles
+- [Contact Direct Form](https://leonshireku.me/#contact): Start a conversation or request a project quotation.
+- [GitHub Profile](https://github.com/leonokumu254): Open-source repositories and software contributions.
+- [TikTok Channel](https://www.tiktok.com/@nelson_leon6?is_from_webapp=1&sender_device=pc): Technical insights and digital media creations.
+- [Instagram Profile](https://www.instagram.com/leon.nelson.121): Behind-the-scenes engineering and creative updates.

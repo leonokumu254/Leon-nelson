@@ -1,21 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700;800;900&display=swap');
-
 :root {
   /* User defined color palette */
   --color-cobalt: #0047FF;            /* Cobalt Accent */
   --color-midnight: #101010;          /* Midnight Dark */
   --color-icewhite: #F5F7FA;          /* Icewhite Primary Background */
   --color-silver: #D9DCE1;            /* Silver Border & Divider */
-  --color-steel: #8A9099;             /* Steel Muted / Secondary Text */
+  --color-steel: #8A9099;             /* Steel Muted / Section Background */
 
-  /* Semantic mappings */
+  /* Semantic mappings with WCAG AA compliant contrast */
   --bg-primary: var(--color-icewhite);
   --bg-surface: #FFFFFF;
   --bg-accent: var(--color-silver);
   
   --text-primary: var(--color-midnight);
-  --text-secondary: var(--color-steel);
-  --text-muted: #9BA1AA;
+  --text-secondary: #4A515D;          /* High contrast (5.7:1) for readability */
+  --text-muted: #626A76;
 
   --border-light: var(--color-silver);
   --border-focus: var(--color-cobalt);

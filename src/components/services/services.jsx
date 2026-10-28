@@ -69,6 +69,8 @@ const Services = () => {
                       <img
                         src={service.s_image}
                         alt={`${service.s_name} preview mockup`}
+                        width="736"
+                        height="534"
                         className="service-card-mockup-img"
                         loading="eager"
                         decoding="async"

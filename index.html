@@ -56,11 +56,14 @@
     <meta name="twitter:image" content="https://leonshireku.me/picha.png" />
     <meta name="twitter:image:alt" content="Leon Nelson — Full-Stack Software Engineer &amp; Digital Strategist" />
 
+    <!-- Preload Critical LCP Hero Image -->
+    <link rel="preload" as="image" href="/picha.webp" type="image/webp" fetchpriority="high" />
+
     <!-- Google Fonts Preconnect & Optimization -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700;800;900&display=swap"
       rel="stylesheet"
     />
 
@@ -119,7 +122,62 @@
     </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Semantic SEO Prerender Shell for Search Engine Crawlers & Non-JS Bots -->
+      <header>
+        <nav aria-label="Main Navigation">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#work">Projects</a>
+          <a href="#contact">Contact</a>
+          <a href="https://docs.google.com/document/d/1ysB4CDrRh2jZUjOp3PFblqdg8njHe-kTuuGXMdi2ZNQ/edit?usp=sharing">Resume</a>
+        </nav>
+      </header>
+      <main>
+        <section id="home">
+          <h1>Leon Nelson — Full-Stack Software Engineer &amp; Digital Strategist</h1>
+          <p>DevOps &amp; Cloud Engineer, Full-Stack Web Developer, and Technical SEO Growth Architect based in Nairobi, Kenya.</p>
+          <a href="#contact">Let's collaborate</a>
+        </section>
+        <section id="about">
+          <h2>About Leon Nelson</h2>
+          <p>I’m a Full-Stack Software Engineer and Digital Strategist specializing in modern web architecture, cloud deployment, and organic growth.</p>
+          <p>Rather than just writing code, I bridge technical capability with tangible business impact—engineering high-performance digital platforms that load fast, rank on search engines, and convert visitors into loyal clients.</p>
+        </section>
+        <section id="services">
+          <h2>Services</h2>
+          <ul>
+            <li><strong>Full-Stack Web Development</strong>: High-performance, scalable web applications built with modern frameworks and robust backend APIs.</li>
+            <li><strong>DevOps &amp; Cloud Systems</strong>: Automated CI/CD pipelines, container orchestration, and 24/7 uptime infrastructure.</li>
+            <li><strong>Digital Marketing &amp; SEO Strategy</strong>: Data-driven search engine optimization, visibility architecture, and organic conversion funnels.</li>
+            <li><strong>Social Media Management</strong>: High-impact content strategy and community growth across TikTok, Instagram, and LinkedIn.</li>
+          </ul>
+        </section>
+        <section id="work">
+          <h2>Selected Work &amp; Case Studies</h2>
+          <article>
+            <h3>Supreme Adventures — Client Safari Platform &amp; Booking Engine</h3>
+            <p>Custom safari booking platform and private staff portal built to help an East African tour operator rank on Google and manage direct customer bookings.</p>
+          </article>
+          <article>
+            <h3>Lulu Aurelian Estate — Luxury Hospitality &amp; Automated Guest Portal</h3>
+            <p>Modern vacation rental platform with automatic STK push payments, smart self-check-in door codes, and a live dashboard for property managers.</p>
+          </article>
+        </section>
+        <section id="contact">
+          <h2>Get in Touch</h2>
+          <p>Email: <a href="mailto:leonshireku@gmail.com">leonshireku@gmail.com</a></p>
+          <p>Phone: <a href="tel:+254741766710">+254 741 766 710</a></p>
+          <p>Location: Nairobi, Kenya</p>
+        </section>
+      </main>
+      <footer>
+        <p>&copy; 2026 Leon Nelson. All rights reserved.</p>
+      </footer>
+    </div>
+    <noscript>
+      <p>JavaScript is required for interactive animations and dynamic features. The full portfolio content above is accessible for viewing.</p>
+    </noscript>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

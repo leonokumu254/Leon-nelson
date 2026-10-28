@@ -96,7 +96,12 @@ const Navbar = () => {
             <FiArrowUpRight className="nav-resume-arrow" />
           </a>
 
-          <AnchorLink className="nav-cta-btn" href="#contact" offset={80}>
+          <AnchorLink
+            className="nav-cta-btn"
+            href="#contact"
+            offset={80}
+            aria-label="Let's collaborate — contact section"
+          >
             <span>Let's Talk</span>
             <FiArrowUpRight className="nav-cta-arrow" />
           </AnchorLink>
@@ -174,6 +179,7 @@ const Navbar = () => {
             className="nav-cta-btn mobile-cta-btn"
             href="#contact"
             offset={60}
+            aria-label="Let's collaborate — contact section"
             onClick={() => setIsMenuOpen(false)}
           >
             <span>Let's Talk</span>

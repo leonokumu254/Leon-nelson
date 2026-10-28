@@ -1,6 +1,6 @@
 import React from 'react'
 import './footer.css'
-import footer_logo from '../../../assets/logo.png'
+import footer_logo from '../../../assets/logo.webp'
 import { FaInstagram, FaFacebook, FaGithub } from 'react-icons/fa';
 import { FaTiktok } from 'react-icons/fa6';
 
@@ -9,8 +9,8 @@ function Footer() {
     <div className='footer'>
         <div className="footer-top">
             <div className="footer-top-left">
-                <img src={footer_logo} alt="" className='footer-logo' />
-                <p>I make  software solutions to real world problems</p>
+                <img src={footer_logo} alt="Leon Nelson Logo" width="140" height="39" loading="lazy" className='footer-logo' />
+                <p>I make software solutions to real world problems</p>
             </div>
             </div>
             

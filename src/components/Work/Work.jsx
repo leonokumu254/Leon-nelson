@@ -110,7 +110,7 @@ const Work = () => {
       <div className="work-editorial-flow" data-aos="fade-up" data-aos-delay="150">
         {/* Project 1: Wide, Cinematic Landscape View */}
         {project1 && (
-          <article
+          <div
             className="project-editorial-item project-card project-layout-landscape"
             onClick={() => setSelectedCaseStudy(project1)}
             tabIndex={0}
@@ -137,6 +137,8 @@ const Work = () => {
               <img
                 src={project1.image}
                 alt={project1.title}
+                width="1200"
+                height="800"
                 className="editorial-image mockup-frame"
                 loading="lazy"
               />
@@ -177,12 +179,12 @@ const Work = () => {
                 </span>
               </div>
             </div>
-          </article>
+          </div>
         )}
 
         {/* Project 2: Asymmetric Dropdown with Bold Typography-First Introduction */}
         {project2 && (
-          <article
+          <div
             className="project-editorial-item project-card project-layout-asymmetric"
             onClick={() => setSelectedCaseStudy(project2)}
             tabIndex={0}
@@ -220,6 +222,8 @@ const Work = () => {
                 <img
                   src={project2.image}
                   alt={project2.title}
+                  width="1000"
+                  height="570"
                   className="editorial-image mockup-frame"
                   loading="lazy"
                 />
@@ -247,7 +251,7 @@ const Work = () => {
                 </div>
               </div>
             </div>
-          </article>
+          </div>
         )}
       </div>
 

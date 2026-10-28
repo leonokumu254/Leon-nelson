@@ -7,16 +7,16 @@ import { FiFileText, FiArrowUpRight } from 'react-icons/fi'
 const resumeUrl = 'https://docs.google.com/document/d/1ysB4CDrRh2jZUjOp3PFblqdg8njHe-kTuuGXMdi2ZNQ/edit?usp=sharing'
 
 const techStack = [
-  { name: 'HTML', icon: <FaHtml5 className="tech-icon html-icon" /> },
-  { name: 'CSS', icon: <FaCss3Alt className="tech-icon css-icon" /> },
-  { name: 'JavaScript', icon: <FaJs className="tech-icon js-icon" /> },
-  { name: 'React', icon: <FaReact className="tech-icon react-icon" /> },
-  { name: 'Next.js', icon: <SiNextdotjs className="tech-icon next-icon" /> },
-  { name: 'Node.js', icon: <FaNodeJs className="tech-icon node-icon" /> },
-  { name: 'PostgreSQL', icon: <SiPostgresql className="tech-icon postgres-icon" /> },
-  { name: 'Docker / DevOps', icon: <SiDocker className="tech-icon docker-icon" /> },
-  { name: 'Python', icon: <FaPython className="tech-icon python-icon" /> },
-  { name: 'Angular', icon: <FaAngular className="tech-icon angular-icon" /> },
+  { name: 'HTML', icon: <FaHtml5 className="tech-icon html-icon" aria-label="HTML" title="HTML" /> },
+  { name: 'CSS', icon: <FaCss3Alt className="tech-icon css-icon" aria-label="CSS" title="CSS" /> },
+  { name: 'JavaScript', icon: <FaJs className="tech-icon js-icon" aria-label="JavaScript" title="JavaScript" /> },
+  { name: 'React', icon: <FaReact className="tech-icon react-icon" aria-label="React" title="React" /> },
+  { name: 'Next.js', icon: <SiNextdotjs className="tech-icon next-icon" aria-label="Next.js" title="Next.js" /> },
+  { name: 'Node.js', icon: <FaNodeJs className="tech-icon node-icon" aria-label="Node.js" title="Node.js" /> },
+  { name: 'PostgreSQL', icon: <SiPostgresql className="tech-icon postgres-icon" aria-label="PostgreSQL" title="PostgreSQL" /> },
+  { name: 'Docker / DevOps', icon: <SiDocker className="tech-icon docker-icon" aria-label="Docker / DevOps" title="Docker / DevOps" /> },
+  { name: 'Python', icon: <FaPython className="tech-icon python-icon" aria-label="Python" title="Python" /> },
+  { name: 'Angular', icon: <FaAngular className="tech-icon angular-icon" aria-label="Angular" title="Angular" /> },
 ]
 
 const About = () => {
@@ -49,6 +49,7 @@ const About = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="about-resume-btn"
+              aria-label="View Leon Nelson's Resume"
             >
               <FiFileText className="about-resume-icon" />
               <span>View Full Resume / CV</span>

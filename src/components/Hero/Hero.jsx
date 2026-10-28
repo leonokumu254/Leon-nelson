@@ -23,8 +23,80 @@ const roleItems = [
   }
 ]
 
+const GLYPHS = '01#X_@$8&*'
+
+const StaggeredChar = ({ char, index, isHovered }) => {
+  const [displayChar, setDisplayChar] = useState(char)
+
+  useEffect(() => {
+    // Slower, cinematic Staggered Scramble & Reveal on initial mount
+    const startDelay = 160 + index * 85
+    const scrambleDuration = 280
+    let frameId
+    let startTime = null
+
+    const timeout = setTimeout(() => {
+      const step = (now) => {
+        if (!startTime) startTime = now
+        const elapsed = now - startTime
+
+        if (elapsed < scrambleDuration) {
+          const randomGlyph = GLYPHS[Math.floor(Math.random() * GLYPHS.length)]
+          setDisplayChar(randomGlyph)
+          frameId = requestAnimationFrame(step)
+        } else {
+          setDisplayChar(char)
+        }
+      }
+      frameId = requestAnimationFrame(step)
+    }, startDelay)
+
+    return () => {
+      clearTimeout(timeout)
+      if (frameId) cancelAnimationFrame(frameId)
+    }
+  }, [char, index])
+
+  // Re-scramble on interactive hover with smoother duration
+  useEffect(() => {
+    if (!isHovered) return
+    const scrambleDuration = 260
+    let frameId
+    let startTime = null
+
+    const step = (now) => {
+      if (!startTime) startTime = now
+      const elapsed = now - startTime
+
+      if (elapsed < scrambleDuration) {
+        const randomGlyph = GLYPHS[Math.floor(Math.random() * GLYPHS.length)]
+        setDisplayChar(randomGlyph)
+        frameId = requestAnimationFrame(step)
+      } else {
+        setDisplayChar(char)
+      }
+    }
+    frameId = requestAnimationFrame(step)
+
+    return () => {
+      if (frameId) cancelAnimationFrame(frameId)
+    }
+  }, [isHovered, char])
+
+  return (
+    <span
+      className="staggered-char"
+      style={{ '--char-index': index }}
+      aria-hidden="true"
+    >
+      {displayChar}
+    </span>
+  )
+}
+
 const Hero = () => {
   const [activeIndex, setActiveIndex] = useState(0)
+  const [hoverCount, setHoverCount] = useState(0)
 
   // Slot machine vertical wheel roll timer
   useEffect(() => {
@@ -37,22 +109,37 @@ const Hero = () => {
 
   const translateYPercent = activeIndex * (100 / roleItems.length)
 
+  const renderStaggeredChars = (text, startIndex = 0) => {
+    return text.split('').map((char, i) => (
+      <StaggeredChar
+        key={`${startIndex + i}-${char}`}
+        char={char}
+        index={startIndex + i}
+        isHovered={hoverCount > 0}
+      />
+    ))
+  }
+
   return (
     <section id="home" className="hero-fullscreen-section">
-      {/* 1. Name appears FIRST coming DOWNWARDS: LEON on left, NELSON + SHIREKU (stroke, smaller) on right */}
-      <div
+      {/* 1. Name: Character Staggered Fade / Blur (Scramble & Reveal) */}
+      <h1
         className="hero-giant-typography"
-        aria-hidden="true"
-        data-aos="fade-down"
-        data-aos-duration="1400"
-        data-aos-delay="300"
+        aria-label="Leon Nelson Shireku"
+        onMouseEnter={() => setHoverCount((prev) => prev + 1)}
       >
-        <span className="hero-name-stroke">LEON</span>
+        <span className="hero-name-stroke">
+          {renderStaggeredChars('LEON', 0)}
+        </span>
         <div className="hero-name-right-group">
-          <span className="hero-name-solid">NELSON</span>
-          <span className="hero-name-shireku-stroke">SHIREKU</span>
+          <span className="hero-name-solid">
+            {renderStaggeredChars('NELSON', 4)}
+          </span>
+          <span className="hero-name-shireku-stroke">
+            {renderStaggeredChars('SHIREKU', 10)}
+          </span>
         </div>
-      </div>
+      </h1>
 
       {/* 4. Picture comes the LAST UPWARDS, centered in viewport */}
       <div
@@ -63,8 +150,12 @@ const Hero = () => {
       >
         <div className="hero-portrait-container">
           <img
-            src="/picha.png"
+            src="/picha.webp"
             alt="Leon Nelson Shireku"
+            width="671"
+            height="817"
+            fetchPriority="high"
+            decoding="async"
             className="hero-cutout-image"
           />
         </div>
@@ -108,7 +199,7 @@ const Hero = () => {
         </div>
 
         {/* CTA with midnight color accent */}
-        <AnchorLink href="#contact" offset={80} className="hero-collab-btn">
+        <AnchorLink href="#contact" offset={80} className="hero-collab-btn" aria-label="Let's collaborate — contact section">
           <span>Let's collaborate</span>
           <FiArrowUpRight className="hero-collab-arrow" />
         </AnchorLink>
@@ -126,16 +217,18 @@ const Hero = () => {
           target="_blank"
           rel="noopener noreferrer"
           className="hero-social-pill"
+          aria-label="GitHub profile"
         >
           <FaGithub className="social-pill-icon" />
           <span>GitHub</span>
         </a>
 
         <a
-          href="https://www.instagram.com"
+          href="https://www.instagram.com/leon.nelson.121"
           target="_blank"
           rel="noopener noreferrer"
           className="hero-social-pill"
+          aria-label="Instagram profile"
         >
           <FaInstagram className="social-pill-icon" />
           <span>Instagram</span>
@@ -146,6 +239,7 @@ const Hero = () => {
           target="_blank"
           rel="noopener noreferrer"
           className="hero-social-pill"
+          aria-label="TikTok profile"
         >
           <FaTiktok className="social-pill-icon" />
           <span>TikTok</span>

@@ -1,0 +1,43 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Leon Nelson Portfolio",
+    "identifier": "leonshireku.me"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:leonshireku.me:portfolio:overview",
+      "displayName": "Leon Nelson Portfolio Overview",
+      "type": "text/markdown",
+      "url": "https://leonshireku.me/llms.txt",
+      "description": "Comprehensive capability overview, technical services, and case studies for Leon Nelson.",
+      "representativeQueries": [
+        "Who is Leon Nelson and what are his technical capabilities?",
+        "Find full-stack engineering and DevOps services by Leon Nelson",
+        "View case studies for web applications built by Leon Nelson"
+      ]
+    },
+    {
+      "identifier": "urn:air:leonshireku.me:contact:inquiry",
+      "displayName": "Contact & Collaboration Request",
+      "type": "text/html",
+      "url": "https://leonshireku.me/#contact",
+      "description": "Direct communication channel to hire or collaborate with Leon Nelson for engineering and digital strategy.",
+      "representativeQueries": [
+        "How can I contact Leon Nelson for a software project?",
+        "Book a consultation or hire Leon Nelson"
+      ]
+    },
+    {
+      "identifier": "urn:air:leonshireku.me:resume:cv",
+      "displayName": "Professional Curriculum Vitae",
+      "type": "application/pdf",
+      "url": "https://docs.google.com/document/d/1ysB4CDrRh2jZUjOp3PFblqdg8njHe-kTuuGXMdi2ZNQ/edit?usp=sharing",
+      "description": "Verified resume detailing full-stack skills, cloud architecture, and technical achievements.",
+      "representativeQueries": [
+        "Show me Leon Nelson's resume and technical background",
+        "What technologies does Leon Nelson specialize in?"
+      ]
+    }
+  ]
+}
