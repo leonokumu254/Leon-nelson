@@ -64,6 +64,12 @@
     <!-- Preload Critical LCP Hero Image -->
     <link rel="preload" as="image" href="/picha.webp" type="image/webp" fetchpriority="high" />
 
+    <!-- Preload Services Mockup Images for Instant 0ms Paint -->
+    <link rel="preload" as="image" href="/services/software_engineering.webp" type="image/webp" />
+    <link rel="preload" as="image" href="/services/digital_marketing.webp" type="image/webp" />
+    <link rel="preload" as="image" href="/services/social_media.webp" type="image/webp" />
+    <link rel="preload" as="image" href="/services/devops.webp" type="image/webp" />
+
     <!-- Google Fonts Preconnect & Optimization -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -127,8 +133,9 @@
     </script>
   </head>
   <body>
-    <div id="root">
-      <!-- Semantic SEO Prerender Shell for Search Engine Crawlers & Non-JS Bots -->
+    <div id="root"></div>
+    <noscript>
+      <!-- Semantic SEO Shell for Non-JS Crawlers & Search Engine Bots -->
       <header>
         <nav aria-label="Main Navigation">
           <a href="#about">About</a>
@@ -154,7 +161,7 @@
           <ul>
             <li><strong>Full-Stack Web Development</strong>: High-performance, scalable web applications built with modern frameworks and robust backend APIs.</li>
             <li><strong>DevOps &amp; Cloud Systems</strong>: Automated CI/CD pipelines, container orchestration, and 24/7 uptime infrastructure.</li>
-            <li><strong>Digital Marketing &amp; SEO Strategy</strong>: Data-driven search engine optimization, visibility architecture, and organic conversion funnels.</li>
+            <li><strong>Digital Marketing, SEO &amp; AEO Strategy</strong>: Data-driven search engine optimization, visibility architecture, and organic conversion funnels.</li>
             <li><strong>Social Media Management</strong>: High-impact content strategy and community growth across TikTok, Instagram, and LinkedIn.</li>
           </ul>
         </section>
@@ -179,9 +186,6 @@
       <footer>
         <p>&copy; 2026 Leon Nelson. All rights reserved.</p>
       </footer>
-    </div>
-    <noscript>
-      <p>JavaScript is required for interactive animations and dynamic features. The full portfolio content above is accessible for viewing.</p>
     </noscript>
     <script type="module" src="/src/main.jsx"></script>
   </body>

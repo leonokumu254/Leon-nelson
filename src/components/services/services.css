@@ -129,11 +129,11 @@
   max-width: 620px;
 }
 
-/* Floating Tilted Mockup Preview Card with AOS animation */
+/* Floating Tilted Mockup Preview Card */
 @keyframes serviceMockupEntrance {
   0% {
-    opacity: 0;
-    transform: translate3d(36px, 0, 0) scale(0.92) rotate(-2deg);
+    opacity: 1;
+    transform: translate3d(10px, 0, 0) scale(0.98) rotate(-3deg);
   }
   100% {
     opacity: 1;
@@ -152,8 +152,8 @@
   transform: rotate(-4deg);
   z-index: 3;
   margin-right: 48px;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
-  animation: serviceMockupEntrance 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  animation: serviceMockupEntrance 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .service-card-expanded:hover .service-card-mockup-wrapper {

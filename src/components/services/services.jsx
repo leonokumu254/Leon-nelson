@@ -136,7 +136,7 @@ const Services = () => {
                         height="534"
                         className="service-card-mockup-img"
                         loading="eager"
-                        decoding="async"
+                        decoding="sync"
                         fetchPriority="high"
                       />
                     </div>
@@ -181,6 +181,31 @@ const Services = () => {
             </div>
           )
         })}
+      </div>
+
+      {/* Offscreen Pre-warmed Image Cache for 0ms Instant Photo Paint */}
+      <div
+        style={{
+          position: 'absolute',
+          width: 0,
+          height: 0,
+          overflow: 'hidden',
+          opacity: 0,
+          pointerEvents: 'none'
+        }}
+        aria-hidden="true"
+      >
+        {Services_Data.map((s, idx) => (
+          <img
+            key={idx}
+            src={s.s_image}
+            alt=""
+            width="736"
+            height="534"
+            decoding="sync"
+            loading="eager"
+          />
+        ))}
       </div>
     </section>
   )
