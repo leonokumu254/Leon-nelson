@@ -98,6 +98,32 @@ const Hero = () => {
   const [activeIndex, setActiveIndex] = useState(0)
   const [hoverCount, setHoverCount] = useState(0)
   const [cycleKey, setCycleKey] = useState(0)
+  const [tilt, setTilt] = useState({ x: 0, y: 0 })
+  const [isPhotoHovered, setIsPhotoHovered] = useState(false)
+  const [isPhotoActive, setIsPhotoActive] = useState(false)
+
+  // 3D tilt calculations for desktop cursor interaction
+  const handlePortraitMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect()
+    const x = e.clientX - rect.left - rect.width / 2
+    const y = e.clientY - rect.top - rect.height / 2
+    const rotateY = ((x / (rect.width / 2)) * 14).toFixed(2)
+    const rotateX = (-(y / (rect.height / 2)) * 14).toFixed(2)
+    setTilt({ x: Number(rotateX), y: Number(rotateY) })
+  }
+
+  const handlePortraitMouseEnter = () => {
+    setIsPhotoHovered(true)
+  }
+
+  const handlePortraitMouseLeave = () => {
+    setIsPhotoHovered(false)
+    setTilt({ x: 0, y: 0 })
+  }
+
+  const handlePortraitClick = () => {
+    setIsPhotoActive((prev) => !prev)
+  }
 
   // Slot machine vertical wheel roll timer
   useEffect(() => {
@@ -152,14 +178,36 @@ const Hero = () => {
         </div>
       </h1>
 
-      {/* 4. Picture comes the LAST UPWARDS, centered in viewport */}
+      {/* 4. Picture comes the LAST UPWARDS, centered in viewport with 3D motion and interactive color */}
       <div
         className="hero-portrait-wrapper"
         data-aos="fade-up"
         data-aos-duration="1600"
         data-aos-delay="1350"
       >
-        <div className="hero-portrait-container">
+        <div
+          className={`hero-portrait-container ${isPhotoHovered ? 'is-hovered' : ''} ${isPhotoActive ? 'is-active' : ''}`}
+          onMouseMove={handlePortraitMouseMove}
+          onMouseEnter={handlePortraitMouseEnter}
+          onMouseLeave={handlePortraitMouseLeave}
+          onClick={handlePortraitClick}
+          style={
+            isPhotoHovered
+              ? {
+                  transform: `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale3d(1.02, 1.02, 1.02)`
+                }
+              : undefined
+          }
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault()
+              setIsPhotoActive((prev) => !prev)
+            }
+          }}
+          aria-label="Leon Nelson portrait — hover or tap to reveal color in 3D"
+        >
           <img
             src="/picha.webp"
             alt="Leon Nelson Shireku"
