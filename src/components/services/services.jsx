@@ -5,23 +5,22 @@ import { FiArrowUpRight, FiX } from 'react-icons/fi'
 import AOS from 'aos'
 
 const Services = () => {
-  // Starts collapsed so users experience the clean list first
-  const [expandedIndex, setExpandedIndex] = useState(null)
+  // Service 01 starts open by default so users see the full service card at first hand
+  const [expandedIndex, setExpandedIndex] = useState(0)
   const [hasCompletedAutoTour, setHasCompletedAutoTour] = useState(false)
   const rowRefs = useRef([])
   const sectionRef = useRef(null)
   const isManualOverrideRef = useRef(false)
-  const revealedIndicesRef = useRef(new Set())
-  const lastScrollYRef = useRef(0)
+  const revealedIndicesRef = useRef(new Set([0]))
 
   const toggleService = (index) => {
-    // Manual click immediately and permanently disables auto-scroll tour
+    // Manual click immediately and permanently switches to user-controlled accordion
     isManualOverrideRef.current = true
     setHasCompletedAutoTour(true)
     setExpandedIndex(expandedIndex === index ? null : index)
   }
 
-  // Preload all service images on component mount so they appear instantaneously upon click
+  // Preload all service images on component mount so they appear instantaneously
   useEffect(() => {
     Services_Data.forEach((service) => {
       if (service.s_image) {
@@ -31,65 +30,64 @@ const Services = () => {
     })
   }, [])
 
-  // Refresh AOS when accordion row is toggled so the image animation triggers
-  useEffect(() => {
-    AOS.refresh()
-  }, [expandedIndex])
-
-  // Scroll-driven auto reveal: Each service auto-expands when scrolled into view,
-  // then closes when scrolling to the next service. Runs ONCE, then switches to click-only.
+  // Smooth scroll-driven auto reveal: Each subsequent service smoothly reveals
+  // as soon as it enters the comfortable viewport reading area, well before the user scrolls past it.
   useEffect(() => {
     if (hasCompletedAutoTour) return
+
+    let rafId = null
 
     const handleScroll = () => {
       if (isManualOverrideRef.current || hasCompletedAutoTour) return
 
-      const currentScrollY = window.scrollY
-      const isScrollingDown = currentScrollY >= lastScrollYRef.current - 10
-      lastScrollYRef.current = currentScrollY
+      if (rafId) return
+      rafId = requestAnimationFrame(() => {
+        rafId = null
+        if (isManualOverrideRef.current || hasCompletedAutoTour) return
 
-      // Check if user has scrolled past the services section
-      if (sectionRef.current) {
-        const sectionRect = sectionRef.current.getBoundingClientRect()
-        if (sectionRect.bottom < 160) {
-          setHasCompletedAutoTour(true)
-          setExpandedIndex(null)
-          return
+        // Check if user has scrolled past the services section
+        if (sectionRef.current) {
+          const sectionRect = sectionRef.current.getBoundingClientRect()
+          if (sectionRect.bottom < 120) {
+            setHasCompletedAutoTour(true)
+            return
+          }
         }
-      }
 
-      // Reading sweet-spot zone in the viewport (between 30% and 65% of viewport height)
-      const triggerY = window.innerHeight * 0.45
+        // Generous, early trigger zone (70% down from viewport top)
+        // Reveals the card as soon as it enters the screen, well before scrolling past it
+        const triggerY = window.innerHeight * 0.70
 
-      let targetIndex = null
-      rowRefs.current.forEach((el, index) => {
-        if (!el) return
-        const rect = el.getBoundingClientRect()
-        if (rect.top <= triggerY && rect.bottom >= triggerY * 0.4) {
-          targetIndex = index
+        let targetIndex = null
+        rowRefs.current.forEach((el, index) => {
+          if (!el) return
+          const rect = el.getBoundingClientRect()
+          if (rect.top <= triggerY && rect.bottom >= 100) {
+            targetIndex = index
+          }
+        })
+
+        if (targetIndex !== null) {
+          revealedIndicesRef.current.add(targetIndex)
+          setExpandedIndex((prev) => {
+            if (prev === targetIndex) return prev
+            return targetIndex
+          })
+
+          // Once the last service is reached and passed, finalize auto tour
+          if (targetIndex === Services_Data.length - 1) {
+            setHasCompletedAutoTour(true)
+          }
         }
       })
-
-      if (targetIndex !== null && isScrollingDown) {
-        if (!revealedIndicesRef.current.has(targetIndex)) {
-          revealedIndicesRef.current.add(targetIndex)
-          setExpandedIndex(targetIndex)
-
-          // Once the last service is reached, finalize tour after user passes it
-          if (targetIndex === Services_Data.length - 1) {
-            setTimeout(() => {
-              setHasCompletedAutoTour(true)
-            }, 2500)
-          }
-        } else if (expandedIndex !== targetIndex && !revealedIndicesRef.current.has(targetIndex + 1)) {
-          setExpandedIndex(targetIndex)
-        }
-      }
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [hasCompletedAutoTour, expandedIndex])
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      if (rafId) cancelAnimationFrame(rafId)
+    }
+  }, [hasCompletedAutoTour])
 
   return (
     <section id="services" ref={sectionRef} className="services-section">
@@ -130,12 +128,7 @@ const Services = () => {
                   </div>
 
                   {service.s_image && (
-                    <div
-                      className="service-card-mockup-wrapper"
-                      data-aos="fade-left"
-                      data-aos-duration="600"
-                      data-aos-delay="100"
-                    >
+                    <div className="service-card-mockup-wrapper">
                       <img
                         src={service.s_image}
                         alt={`${service.s_name} preview mockup`}
