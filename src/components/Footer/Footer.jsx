@@ -1,6 +1,5 @@
 import React from 'react'
 import './footer.css'
-import footer_logo from '../../../assets/logo.webp'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import { FaInstagram, FaFacebook, FaGithub } from 'react-icons/fa'
 import { FaTiktok } from 'react-icons/fa6'
@@ -11,17 +10,24 @@ function Footer() {
     <footer className="footer" role="contentinfo">
       {/* 3-Column Structured Layout */}
       <div className="footer-columns">
-        {/* Left Column: Nelson Logo Badge & Tagline */}
+        {/* Left Column: Portrait Avatar Badge & Tagline */}
         <div className="footer-col footer-col-brand">
-          <AnchorLink href="#home" className="footer-logo-link" aria-label="Back to top">
-            <img
-              src={footer_logo}
-              alt="Leon Nelson Logo"
-              width="140"
-              height="39"
-              loading="lazy"
-              className="footer-logo"
-            />
+          <AnchorLink href="#home" className="footer-portrait-link" aria-label="Back to top">
+            <div className="footer-portrait-wrapper">
+              <img
+                src="/picha.webp"
+                alt="Leon Nelson"
+                width="76"
+                height="76"
+                loading="lazy"
+                decoding="async"
+                className="footer-portrait-img"
+              />
+            </div>
+            <div className="footer-brand-meta">
+              <span className="footer-brand-name">LEON NELSON</span>
+              <span className="footer-brand-role">Software Engineer & Strategist</span>
+            </div>
           </AnchorLink>
           <p className="footer-tagline">
             I make software solutions to real world problems
