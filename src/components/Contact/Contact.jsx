@@ -78,8 +78,12 @@ const Contact = () => {
           {/* Profile Pill with Avatar */}
           <div className="contact-profile-pill">
             <img
-              src="/picha.png"
+              src="/picha.webp"
               alt="Leon Nelson"
+              width="36"
+              height="36"
+              loading="lazy"
+              decoding="async"
               className="contact-profile-avatar"
             />
             <span className="contact-profile-name">Leon Nelson</span>
@@ -104,6 +108,7 @@ const Contact = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="contact-platform-pill"
+            aria-label="GitHub profile"
           >
             <FaGithub className="pill-platform-icon" />
             <span>GitHub</span>
@@ -114,6 +119,7 @@ const Contact = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="contact-platform-pill"
+            aria-label="Instagram profile"
           >
             <FaInstagram className="pill-platform-icon" />
             <span>Instagram</span>
@@ -124,7 +130,7 @@ const Contact = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="contact-platform-pill"
-            aria-label="TikTok"
+            aria-label="TikTok profile"
           >
             <FaTiktok className="pill-platform-icon" />
             <span>TikTok</span>
@@ -135,6 +141,7 @@ const Contact = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="contact-platform-pill"
+            aria-label="WhatsApp chat"
           >
             <FaWhatsapp className="pill-platform-icon whatsapp-icon" />
             <span>WhatsApp</span>

@@ -7,8 +7,8 @@ const Services_Data = [
   },
   {
     s_no: "02",
-    s_name: "DIGITAL MARKETING & SEO SPECIALIST",
-    s_desc: "I help your business get found on Google and turn everyday visitors into paying clients by making your website rank higher, load faster, and feel effortless to use.",
+    s_name: "DIGITAL MARKETING, SEO & AEO SPECIALIST",
+    s_desc: "I help your business get found on Google and actively recommended by AI bots like ChatGPT, Gemini, and Claude through Answer Engine Optimization (AEO). I ensure your brand ranks at the top, directly answers AI search queries, loads fast, and converts everyday visitors into paying clients.",
     s_image: "/services/digital_marketing.webp"
   },
   {

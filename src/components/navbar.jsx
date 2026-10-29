@@ -112,13 +112,15 @@ const Navbar = () => {
           className="nav-mobile-toggle"
           onClick={toggleMenu}
           aria-label="Toggle Navigation Menu"
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-nav-drawer"
         >
           {isMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
         </button>
       </nav>
 
       {/* Mobile Drawer Menu */}
-      <div className={`nav-mobile-drawer ${isMenuOpen ? 'open' : ''}`}>
+      <div id="mobile-nav-drawer" className={`nav-mobile-drawer ${isMenuOpen ? 'open' : ''}`}>
 
         <ul className="nav-links-mobile">
           <li>

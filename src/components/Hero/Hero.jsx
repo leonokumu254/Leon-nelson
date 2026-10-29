@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import './hero.css'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import { FiArrowUpRight } from 'react-icons/fi'
@@ -18,8 +18,8 @@ const roleItems = [
     description: 'Executing engaging content strategies and growing online brand communities.'
   },
   {
-    title: 'Digital Marketer & SEO Specialist',
-    description: 'Driving organic search traffic, site visibility, and conversion funnels.'
+    title: 'Digital Marketer, SEO & AEO Specialist',
+    description: 'Driving organic search traffic, AI bot recommendations (ChatGPT, Gemini, Claude), and high-conversion funnels.'
   }
 ]
 
@@ -98,31 +98,61 @@ const Hero = () => {
   const [activeIndex, setActiveIndex] = useState(0)
   const [hoverCount, setHoverCount] = useState(0)
   const [cycleKey, setCycleKey] = useState(0)
-  const [tilt, setTilt] = useState({ x: 0, y: 0 })
+  const [cursorOffset, setCursorOffset] = useState({ x: 0, y: 0, rotX: 0, rotY: 0 })
   const [isPhotoHovered, setIsPhotoHovered] = useState(false)
   const [isPhotoActive, setIsPhotoActive] = useState(false)
+  const portraitRef = useRef(null)
 
-  // 3D tilt calculations for desktop cursor interaction
-  const handlePortraitMouseMove = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect()
-    const x = e.clientX - rect.left - rect.width / 2
-    const y = e.clientY - rect.top - rect.height / 2
-    const rotateY = ((x / (rect.width / 2)) * 14).toFixed(2)
-    const rotateX = (-(y / (rect.height / 2)) * 14).toFixed(2)
-    setTilt({ x: Number(rotateX), y: Number(rotateY) })
+  // Fluid 3D direction calculation across mouse & mobile touches
+  const update3DTarget = (clientX, clientY, containerRect) => {
+    let normX = 0
+    let normY = 0
+
+    if (portraitRef.current) {
+      const pRect = portraitRef.current.getBoundingClientRect()
+      const centerX = pRect.left + pRect.width / 2
+      const centerY = pRect.top + pRect.height / 2
+      // Span boundaries relative to viewport for intuitive touch/mouse distance
+      const spanX = Math.max(window.innerWidth * 0.42, 130)
+      const spanY = Math.max(window.innerHeight * 0.35, 130)
+      normX = Math.max(-1, Math.min(1, (clientX - centerX) / spanX))
+      normY = Math.max(-1, Math.min(1, (clientY - centerY) / spanY))
+    } else if (containerRect) {
+      normX = ((clientX - containerRect.left) / containerRect.width - 0.5) * 2
+      normY = ((clientY - containerRect.top) / containerRect.height - 0.5) * 2
+    }
+
+    setCursorOffset({
+      x: Number((normX * 22).toFixed(2)),
+      y: Number((normY * 15).toFixed(2)),
+      rotY: Number((normX * 18).toFixed(2)), // directs 3D portrait facing the touch/pointer
+      rotX: Number((-normY * 14).toFixed(2)) // leans 3D portrait towards touch/pointer
+    })
   }
 
-  const handlePortraitMouseEnter = () => {
-    setIsPhotoHovered(true)
+  const handleHeroMouseMove = (e) => {
+    update3DTarget(e.clientX, e.clientY, e.currentTarget.getBoundingClientRect())
   }
 
-  const handlePortraitMouseLeave = () => {
-    setIsPhotoHovered(false)
-    setTilt({ x: 0, y: 0 })
+  const handleHeroMouseLeave = () => {
+    setCursorOffset({ x: 0, y: 0, rotX: 0, rotY: 0 })
   }
 
-  const handlePortraitClick = () => {
-    setIsPhotoActive((prev) => !prev)
+  // Mobile / Small Screen Touch Steering
+  const handleHeroTouchMove = (e) => {
+    if (!e.touches || e.touches.length === 0) return
+    const touch = e.touches[0]
+    update3DTarget(touch.clientX, touch.clientY, e.currentTarget.getBoundingClientRect())
+  }
+
+  const handleHeroTouchStart = (e) => {
+    setIsPhotoActive(true) // Immediately reveal color on touch
+    handleHeroTouchMove(e)
+  }
+
+  const handleHeroTouchEnd = () => {
+    // Smoothly springs back to zero-gravity neutral float
+    setCursorOffset({ x: 0, y: 0, rotX: 0, rotY: 0 })
   }
 
   // Slot machine vertical wheel roll timer
@@ -158,7 +188,16 @@ const Hero = () => {
   }
 
   return (
-    <section id="home" className="hero-fullscreen-section">
+    <section
+      id="home"
+      className="hero-fullscreen-section"
+      onMouseMove={handleHeroMouseMove}
+      onMouseLeave={handleHeroMouseLeave}
+      onTouchStart={handleHeroTouchStart}
+      onTouchMove={handleHeroTouchMove}
+      onTouchEnd={handleHeroTouchEnd}
+      onTouchCancel={handleHeroTouchEnd}
+    >
       {/* 1. Name: Character Staggered Fade / Blur (Scramble & Reveal) */}
       <h1
         className="hero-giant-typography"
@@ -178,45 +217,48 @@ const Hero = () => {
         </div>
       </h1>
 
-      {/* 4. Picture comes the LAST UPWARDS, centered in viewport with 3D motion and interactive color */}
+      {/* 4. Picture comes the LAST UPWARDS, centered in viewport with 3D cursor & touch following and uninterrupted floating */}
       <div
+        ref={portraitRef}
         className="hero-portrait-wrapper"
         data-aos="fade-up"
         data-aos-duration="1600"
         data-aos-delay="1350"
       >
+        {/* Layer 1: Follows cursor / touch movement and leans dynamically in 3D */}
         <div
-          className={`hero-portrait-container ${isPhotoHovered ? 'is-hovered' : ''} ${isPhotoActive ? 'is-active' : ''}`}
-          onMouseMove={handlePortraitMouseMove}
-          onMouseEnter={handlePortraitMouseEnter}
-          onMouseLeave={handlePortraitMouseLeave}
-          onClick={handlePortraitClick}
-          style={
-            isPhotoHovered
-              ? {
-                  transform: `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale3d(1.02, 1.02, 1.02)`
-                }
-              : undefined
-          }
-          role="button"
-          tabIndex={0}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              e.preventDefault()
-              setIsPhotoActive((prev) => !prev)
-            }
+          className="hero-portrait-cursor-tracker"
+          style={{
+            transform: `perspective(1000px) translate3d(${cursorOffset.x}px, ${cursorOffset.y}px, 0px) rotateX(${cursorOffset.rotX}deg) rotateY(${cursorOffset.rotY}deg)`
           }}
-          aria-label="Leon Nelson portrait — hover or tap to reveal color in 3D"
         >
-          <img
-            src="/picha.webp"
-            alt="Leon Nelson Shireku"
-            width="671"
-            height="817"
-            fetchPriority="high"
-            decoding="async"
-            className="hero-cutout-image"
-          />
+          {/* Layer 2: Continuous 3D floating animation (never paused on hover or touch) */}
+          <div
+            className={`hero-portrait-float-layer ${isPhotoHovered ? 'is-hovered' : ''} ${isPhotoActive ? 'is-active' : ''}`}
+            onMouseEnter={() => setIsPhotoHovered(true)}
+            onMouseLeave={() => setIsPhotoHovered(false)}
+            onClick={() => setIsPhotoActive((prev) => !prev)}
+            onTouchStart={() => setIsPhotoActive(true)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault()
+                setIsPhotoActive((prev) => !prev)
+              }
+            }}
+            aria-label="Leon Nelson portrait — hover or tap to reveal color in 3D"
+          >
+            <img
+              src="/picha.webp"
+              alt="Leon Nelson Shireku"
+              width="671"
+              height="817"
+              fetchPriority="high"
+              decoding="async"
+              className="hero-cutout-image"
+            />
+          </div>
         </div>
       </div>
 

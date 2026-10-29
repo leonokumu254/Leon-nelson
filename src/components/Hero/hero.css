@@ -152,7 +152,8 @@
   }
 }
 
-.hero-portrait-container {
+/* Layer 1: Cursor tracking layer — smoothly shifts & tilts following cursor */
+.hero-portrait-cursor-tracker {
   height: 100%;
   display: flex;
   justify-content: center;
@@ -161,16 +162,24 @@
   cursor: pointer;
   transform-style: preserve-3d;
   will-change: transform;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+  touch-action: pan-y;
+}
+
+/* Layer 2: 3D zero-gravity floating animation — NEVER paused on hover */
+.hero-portrait-float-layer {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  transform-style: preserve-3d;
+  will-change: transform;
   animation: heroFloat3D 6.2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
-  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1);
   outline: none;
 }
 
-.hero-portrait-container.is-hovered {
-  animation-play-state: paused;
-}
-
-.hero-portrait-container:focus-visible {
+.hero-portrait-cursor-tracker:focus-visible {
   outline: 2px solid var(--color-cobalt);
   outline-offset: 6px;
   border-radius: 20px;
@@ -184,18 +193,18 @@
   object-fit: contain;
   object-position: bottom center;
   filter: grayscale(100%) contrast(1.05) drop-shadow(0 20px 40px rgba(16, 16, 16, 0.1));
-  transition: filter 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: filter 0.55s cubic-bezier(0.16, 1, 0.3, 1);
   transform-style: preserve-3d;
-  will-change: filter, transform;
+  will-change: filter;
   user-select: none;
   -webkit-user-drag: none;
 }
 
-/* Color reveal on hover (desktop), touch active (.is-active / :active), and focus */
-.hero-portrait-container:hover .hero-cutout-image,
-.hero-portrait-container.is-hovered .hero-cutout-image,
-.hero-portrait-container.is-active .hero-cutout-image,
-.hero-portrait-container:active .hero-cutout-image {
+/* Color reveal ONLY changes color and drop-shadow glow — floating motion continues uninterrupted */
+.hero-portrait-float-layer:hover .hero-cutout-image,
+.hero-portrait-float-layer.is-hovered .hero-cutout-image,
+.hero-portrait-float-layer.is-active .hero-cutout-image,
+.hero-portrait-float-layer:active .hero-cutout-image {
   filter: grayscale(0%) contrast(1) drop-shadow(0 28px 56px rgba(0, 71, 255, 0.24));
 }
 
@@ -459,7 +468,12 @@
     }
   }
 
-  .hero-portrait-container {
+  .hero-portrait-cursor-tracker {
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    touch-action: pan-y;
+  }
+
+  .hero-portrait-float-layer {
     animation: heroFloat3DMobile 5.2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
     -webkit-tap-highlight-color: transparent;
   }
@@ -527,7 +541,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-portrait-container {
+  .hero-portrait-cursor-tracker,
+  .hero-portrait-float-layer {
     animation: none !important;
     transform: none !important;
   }

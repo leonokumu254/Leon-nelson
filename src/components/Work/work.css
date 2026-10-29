@@ -493,6 +493,13 @@
 /* ==============================================================
    Interactive Case Study Modal Styles (Brand Theme)
    ============================================================== */
+html.modal-open,
+body.modal-open {
+  overflow: hidden !important;
+  height: 100% !important;
+  overscroll-behavior: none !important;
+}
+
 .case-study-modal-backdrop {
   position: fixed;
   inset: 0;
@@ -505,6 +512,8 @@
   justify-content: center;
   padding: clamp(16px, 3vw, 32px);
   animation: fadeInModal 0.25s ease-out;
+  overscroll-behavior: contain;
+  touch-action: none;
 }
 
 @keyframes fadeInModal {
@@ -634,6 +643,9 @@
 .spread-modal-scroll-pane {
   flex: 1;
   overflow-y: auto;
+  overscroll-behavior: contain;
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
   padding: clamp(24px, 4vw, 48px) clamp(20px, 4vw, 54px);
   background: #FFFFFF;
 }
@@ -1240,54 +1252,29 @@
     letter-spacing: 0.08em;
   }
 
-  /* Top Masthead Close Button (Touch Friendly) */
+  /* Top Masthead Close Button (Touch Friendly & Cohesive) */
   .spread-close-btn {
-    padding: 8px 16px;
-    min-height: 42px;
-    font-size: 12.5px;
-    background: var(--color-midnight);
-    color: #FFFFFF;
-    border-color: var(--color-midnight);
-    box-shadow: 0 4px 12px rgba(16, 16, 16, 0.18);
+    padding: 7px 16px;
+    min-height: 38px;
+    font-size: 13px;
+    background: #FFFFFF;
+    color: var(--color-midnight);
+    border: 1.5px solid var(--color-silver);
+    box-shadow: 0 2px 8px rgba(16, 16, 16, 0.05);
   }
 
-  /* Mobile Floating Thumb-Friendly Close Button */
+  .spread-close-btn:active {
+    color: var(--color-cobalt);
+    border-color: var(--color-cobalt);
+    background: #FFFFFF;
+  }
+
   .spread-mobile-floating-close-btn {
-    position: fixed;
-    bottom: calc(20px + env(safe-area-inset-bottom, 0px));
-    right: 18px;
-    z-index: 10000;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: #101010;
-    color: #FFFFFF;
-    border: 1.5px solid rgba(255, 255, 255, 0.25);
-    padding: 12px 20px;
-    border-radius: 9999px;
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 13.5px;
-    font-weight: 800;
-    letter-spacing: -0.01em;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), 0 2px 8px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    touch-action: manipulation;
-    -webkit-tap-highlight-color: transparent;
-    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease;
-  }
-
-  .spread-mobile-floating-close-btn:active {
-    transform: scale(0.94);
-    background: #000000;
-  }
-
-  .floating-close-icon {
-    font-size: 16px;
-    stroke-width: 2.5;
+    display: none !important;
   }
 
   .spread-modal-scroll-pane {
-    padding: 20px 16px 84px 16px;
+    padding: 20px 16px 40px 16px;
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
   }

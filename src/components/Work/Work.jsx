@@ -2,25 +2,46 @@ import React, { useState, useEffect } from 'react'
 import './work.css'
 import Projects_Data from '../../../assets/projects_data.js'
 import { FiArrowUpRight, FiX, FiExternalLink } from 'react-icons/fi'
+import AOS from 'aos'
 
 const Work = () => {
   const [selectedCaseStudy, setSelectedCaseStudy] = useState(null)
 
-  // Close modal on Escape key press
+  // Ensure AOS registers the project cards immediately
+  useEffect(() => {
+    AOS.refresh()
+    const timer = setTimeout(() => {
+      AOS.refresh()
+    }, 350)
+    return () => clearTimeout(timer)
+  }, [])
+
+  // Close modal on Escape key press and strictly lock background scroll
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
         setSelectedCaseStudy(null)
       }
     }
+
     if (selectedCaseStudy) {
+      document.documentElement.classList.add('modal-open')
+      document.body.classList.add('modal-open')
+      document.documentElement.style.overflow = 'hidden'
       document.body.style.overflow = 'hidden'
       window.addEventListener('keydown', handleKeyDown)
     } else {
-      document.body.style.overflow = 'unset'
+      document.documentElement.classList.remove('modal-open')
+      document.body.classList.remove('modal-open')
+      document.documentElement.style.overflow = ''
+      document.body.style.overflow = ''
     }
+
     return () => {
-      document.body.style.overflow = 'unset'
+      document.documentElement.classList.remove('modal-open')
+      document.body.classList.remove('modal-open')
+      document.documentElement.style.overflow = ''
+      document.body.style.overflow = ''
       window.removeEventListener('keydown', handleKeyDown)
     }
   }, [selectedCaseStudy])
@@ -107,11 +128,14 @@ const Work = () => {
       </div>
 
       {/* Magazine-Style Editorial Flow with Asymmetric Spacing */}
-      <div className="work-editorial-flow" data-aos="fade-up" data-aos-delay="150">
+      <div className="work-editorial-flow">
         {/* Project 1: Wide, Cinematic Landscape View */}
         {project1 && (
           <div
             className="project-editorial-item project-card project-layout-landscape"
+            data-aos="fade-up"
+            data-aos-duration="800"
+            data-aos-offset="20"
             onClick={() => setSelectedCaseStudy(project1)}
             tabIndex={0}
             role="button"
@@ -186,6 +210,10 @@ const Work = () => {
         {project2 && (
           <div
             className="project-editorial-item project-card project-layout-asymmetric"
+            data-aos="fade-up"
+            data-aos-duration="800"
+            data-aos-delay="120"
+            data-aos-offset="20"
             onClick={() => setSelectedCaseStudy(project2)}
             tabIndex={0}
             role="button"
@@ -271,9 +299,9 @@ const Work = () => {
             {/* Architectural Masthead */}
             <div className="spread-modal-masthead">
               <div className="masthead-left">
-                <span className="masthead-tag">/ ARCHITECTURAL DIGEST DOSSIER</span>
+                <span className="masthead-tag">/ PROJECT CASE STUDY</span>
                 <span className="masthead-divider">•</span>
-                <span className="masthead-case-ref">CASE STUDY SPREAD</span>
+                <span className="masthead-case-ref">OVERVIEW</span>
               </div>
               <button
                 type="button"
@@ -281,21 +309,10 @@ const Work = () => {
                 onClick={() => setSelectedCaseStudy(null)}
                 aria-label="Close Case Study"
               >
-                <span className="spread-close-label">Close Spread</span>
+                <span className="spread-close-label">Close</span>
                 <FiX className="spread-close-icon" />
               </button>
             </div>
-
-            {/* Mobile Floating Thumb-Friendly Close Button */}
-            <button
-              type="button"
-              className="spread-mobile-floating-close-btn"
-              onClick={() => setSelectedCaseStudy(null)}
-              aria-label="Close Case Study Spread"
-            >
-              <FiX className="floating-close-icon" />
-              <span>Close Spread</span>
-            </button>
 
             {/* Multi-Column Scrollable Body */}
             <div className="spread-modal-scroll-pane">
@@ -377,7 +394,7 @@ const Work = () => {
                   {/* Title & Deck */}
                   <header className="narrative-header">
                     <div className="narrative-rubric">
-                      <span>/ 01. EDITORIAL DOSSIER</span>
+                      <span>/ 01. PROJECT OVERVIEW</span>
                     </div>
                     <h2 id="case-study-title" className="narrative-main-title">
                       {selectedCaseStudy.title}
@@ -413,13 +430,17 @@ const Work = () => {
                       <img
                         src={selectedCaseStudy.image}
                         alt={selectedCaseStudy.title}
+                        width="1200"
+                        height="700"
+                        loading="lazy"
+                        decoding="async"
                         className="breakout-img"
                       />
                       <div className="breakout-scrim"></div>
                     </div>
                     <figcaption className="breakout-caption">
                       <span className="breakout-caption-title">{selectedCaseStudy.visualCaption}</span>
-                      <span className="breakout-badge">FEATURE SPREAD</span>
+                      <span className="breakout-badge">PROJECT PREVIEW</span>
                     </figcaption>
                   </figure>
 
@@ -486,7 +507,7 @@ const Work = () => {
                         className="spread-footer-close-btn"
                         onClick={() => setSelectedCaseStudy(null)}
                       >
-                        <span>Close Spread</span>
+                        <span>Back to Projects</span>
                         <FiX />
                       </button>
                     </div>

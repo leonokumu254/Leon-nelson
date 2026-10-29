@@ -12,11 +12,17 @@ import 'aos/dist/aos.css';
 function App() {
   useEffect(() => {
     AOS.init({
-      duration: 1200, 
-      offset: 100,    
+      duration: 1000, 
+      offset: 30,    
       easing: 'ease-in-out', 
       once: true,     
     });
+
+    const refreshTimer = setTimeout(() => {
+      AOS.refresh();
+    }, 400);
+
+    return () => clearTimeout(refreshTimer);
   }, []);
   return (
     <>
