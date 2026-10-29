@@ -130,22 +130,25 @@
   perspective: 1200px;
 }
 
-/* Ambient 3D floating animation */
+/* Ambient 3D floating animation - weightless, zero-gravity float */
 @keyframes heroFloat3D {
   0% {
-    transform: perspective(1000px) translateY(0px) rotateX(0deg) rotateY(0deg);
+    transform: perspective(1000px) translate3d(0, 0px, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
   }
-  25% {
-    transform: perspective(1000px) translateY(-8px) rotateX(2.5deg) rotateY(-2.8deg);
+  20% {
+    transform: perspective(1000px) translate3d(8px, -14px, 14px) rotateX(3.5deg) rotateY(-4.5deg) rotateZ(1.2deg);
   }
-  50% {
-    transform: perspective(1000px) translateY(-14px) rotateX(0deg) rotateY(2.5deg);
+  45% {
+    transform: perspective(1000px) translate3d(2px, -28px, 24px) rotateX(1deg) rotateY(4deg) rotateZ(-0.8deg);
   }
-  75% {
-    transform: perspective(1000px) translateY(-6px) rotateX(-2deg) rotateY(-1.2deg);
+  70% {
+    transform: perspective(1000px) translate3d(-8px, -18px, 16px) rotateX(-3deg) rotateY(-2.5deg) rotateZ(-1.5deg);
+  }
+  85% {
+    transform: perspective(1000px) translate3d(-3px, -8px, 6px) rotateX(-1deg) rotateY(1.5deg) rotateZ(-0.4deg);
   }
   100% {
-    transform: perspective(1000px) translateY(0px) rotateX(0deg) rotateY(0deg);
+    transform: perspective(1000px) translate3d(0, 0px, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
   }
 }
 
@@ -158,7 +161,7 @@
   cursor: pointer;
   transform-style: preserve-3d;
   will-change: transform;
-  animation: heroFloat3D 6.8s ease-in-out infinite;
+  animation: heroFloat3D 6.2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
   transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1);
   outline: none;
 }
@@ -437,24 +440,27 @@
     perspective: 800px;
   }
 
-  /* Compact 3D floating for mobile devices */
+  /* Compact yet clearly floaty 3D levitation for mobile devices */
   @keyframes heroFloat3DMobile {
     0% {
-      transform: perspective(800px) translateY(0px) rotateX(0deg) rotateY(0deg);
+      transform: perspective(800px) translate3d(0, 0px, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
     }
-    30% {
-      transform: perspective(800px) translateY(-5px) rotateX(1.8deg) rotateY(-2deg);
+    25% {
+      transform: perspective(800px) translate3d(5px, -9px, 10px) rotateX(3deg) rotateY(-3.5deg) rotateZ(0.8deg);
     }
-    70% {
-      transform: perspective(800px) translateY(-8px) rotateX(-1.5deg) rotateY(1.8deg);
+    50% {
+      transform: perspective(800px) translate3d(0, -18px, 16px) rotateX(1deg) rotateY(3deg) rotateZ(-0.6deg);
+    }
+    75% {
+      transform: perspective(800px) translate3d(-5px, -10px, 8px) rotateX(-2deg) rotateY(-2deg) rotateZ(-0.8deg);
     }
     100% {
-      transform: perspective(800px) translateY(0px) rotateX(0deg) rotateY(0deg);
+      transform: perspective(800px) translate3d(0, 0px, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
     }
   }
 
   .hero-portrait-container {
-    animation: heroFloat3DMobile 5.5s ease-in-out infinite;
+    animation: heroFloat3DMobile 5.2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
     -webkit-tap-highlight-color: transparent;
   }
 
