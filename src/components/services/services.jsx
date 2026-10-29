@@ -1,23 +1,44 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import './services.css'
 import Services_Data from '../../../assets/services_data.js'
 import { FiArrowUpRight, FiX } from 'react-icons/fi'
 import AOS from 'aos'
 
 const Services = () => {
-  // Service 01 starts open by default so users see the full service card at first hand
-  const [expandedIndex, setExpandedIndex] = useState(0)
-  const [hasCompletedAutoTour, setHasCompletedAutoTour] = useState(false)
-  const rowRefs = useRef([])
-  const sectionRef = useRef(null)
-  const isManualOverrideRef = useRef(false)
-  const revealedIndicesRef = useRef(new Set([0]))
+  // All services start fully opened by default so users see all cards immediately without any glitch
+  const [openIndices, setOpenIndices] = useState(
+    () => new Set(Services_Data.map((_, index) => index))
+  )
 
   const toggleService = (index) => {
-    // Manual click immediately and permanently switches to user-controlled accordion
-    isManualOverrideRef.current = true
-    setHasCompletedAutoTour(true)
-    setExpandedIndex(expandedIndex === index ? null : index)
+    setOpenIndices((prev) => {
+      const next = new Set(prev)
+      if (next.has(index)) {
+        next.delete(index)
+      } else {
+        next.add(index)
+      }
+      return next
+    })
+    // Recalculate AOS trigger offsets after card expand/collapse
+    setTimeout(() => {
+      AOS.refresh()
+    }, 150)
+  }
+
+  const allOpen = openIndices.size === Services_Data.length
+
+  const toggleAll = () => {
+    setOpenIndices((prev) => {
+      if (prev.size === Services_Data.length) {
+        return new Set() // Collapse all
+      } else {
+        return new Set(Services_Data.map((_, index) => index)) // Expand all
+      }
+    })
+    setTimeout(() => {
+      AOS.refresh()
+    }, 150)
   }
 
   // Preload all service images on component mount so they appear instantaneously
@@ -30,90 +51,38 @@ const Services = () => {
     })
   }, [])
 
-  // Smooth scroll-driven auto reveal: Each subsequent service smoothly reveals
-  // as soon as it enters the comfortable viewport reading area, well before the user scrolls past it.
-  useEffect(() => {
-    if (hasCompletedAutoTour) return
-
-    let rafId = null
-
-    const handleScroll = () => {
-      if (isManualOverrideRef.current || hasCompletedAutoTour) return
-
-      if (rafId) return
-      rafId = requestAnimationFrame(() => {
-        rafId = null
-        if (isManualOverrideRef.current || hasCompletedAutoTour) return
-
-        // Check if user has scrolled past the services section
-        if (sectionRef.current) {
-          const sectionRect = sectionRef.current.getBoundingClientRect()
-          if (sectionRect.bottom < 120) {
-            setHasCompletedAutoTour(true)
-            return
-          }
-        }
-
-        // Generous, early trigger zone (70% down from viewport top)
-        // Reveals the card as soon as it enters the screen, well before scrolling past it
-        const triggerY = window.innerHeight * 0.70
-
-        let targetIndex = null
-        rowRefs.current.forEach((el, index) => {
-          if (!el) return
-          const rect = el.getBoundingClientRect()
-          if (rect.top <= triggerY && rect.bottom >= 100) {
-            targetIndex = index
-          }
-        })
-
-        if (targetIndex !== null) {
-          revealedIndicesRef.current.add(targetIndex)
-          setExpandedIndex((prev) => {
-            if (prev === targetIndex) return prev
-            return targetIndex
-          })
-
-          // Once the last service is reached and passed, finalize auto tour
-          if (targetIndex === Services_Data.length - 1) {
-            setHasCompletedAutoTour(true)
-          }
-        }
-      })
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-      if (rafId) cancelAnimationFrame(rafId)
-    }
-  }, [hasCompletedAutoTour])
-
   return (
-    <section id="services" ref={sectionRef} className="services-section">
-      {/* Header with ghost watermark and bold /SERVICE title */}
+    <section id="services" className="services-section">
+      {/* Header with ghost watermark, bold /SERVICE title, and toggle all control */}
       <div className="services-header" data-aos="fade-up">
         <span className="services-watermark" aria-hidden="true">
           SERVICE
         </span>
         <h2 className="services-main-title">/SERVICE</h2>
+        <button
+          type="button"
+          onClick={toggleAll}
+          className="services-toggle-all-btn"
+          aria-label={allOpen ? 'Collapse all services' : 'Expand all services'}
+        >
+          {allOpen ? 'Collapse All' : 'Expand All'}
+        </button>
       </div>
 
       {/* Services List / Accordion */}
       <div className="services-list">
         {Services_Data.map((service, index) => {
-          const isExpanded = expandedIndex === index
+          const isExpanded = openIndices.has(index)
 
           return (
             <div
               key={index}
-              ref={(el) => (rowRefs.current[index] = el)}
               data-service-index={index}
               className={`service-item-row ${isExpanded ? 'active-card' : ''}`}
               data-aos="fade-up"
-              data-aos-delay={index * 120}
+              data-aos-delay={index * 100}
               data-aos-duration="650"
-              data-aos-offset="60"
+              data-aos-offset="40"
             >
               {isExpanded ? (
                 /* Active Dark Card State with Floating Mockup */
