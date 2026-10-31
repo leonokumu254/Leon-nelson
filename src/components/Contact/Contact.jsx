@@ -122,7 +122,7 @@ const Contact = () => {
             aria-label="X (formerly Twitter) profile @Leon_Nelson25"
           >
             <FaXTwitter className="pill-platform-icon" />
-            <span>X (@Leon_Nelson25)</span>
+            <span>@Leon_Nelson25</span>
           </a>
 
           <a

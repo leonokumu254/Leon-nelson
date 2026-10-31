@@ -116,7 +116,7 @@ I'm always open to connecting with developers, entrepreneurs, businesses, and pe
     <img src="https://img.shields.io/badge/Portfolio-Visit%20Website-0047FF?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Visit Leon Shireku's portfolio" />
   </a>
   <a href="https://x.com/Leon_Nelson25">
-    <img src="https://img.shields.io/badge/X-Follow%20@Leon__Nelson25-000000?style=for-the-badge&logo=x&logoColor=white" alt="Follow Leon Nelson on X" />
+    <img src="https://img.shields.io/badge/@Leon__Nelson25-000000?style=for-the-badge&logo=x&logoColor=white" alt="Follow Leon Nelson on X" />
   </a>
   <a href="mailto:leonshireku@gmail.com">
     <img src="https://img.shields.io/badge/Email-Let's%20Talk-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email Leon Shireku" />

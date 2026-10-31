@@ -328,11 +328,10 @@ const Hero = () => {
           href="https://x.com/Leon_Nelson25"
           target="_blank"
           rel="noopener noreferrer"
-          className="hero-social-pill"
-          aria-label="X (formerly Twitter) profile @Leon_Nelson25"
+          className="hero-social-pill hero-social-pill-icon-only"
+          aria-label="X profile @Leon_Nelson25"
         >
           <FaXTwitter className="social-pill-icon" />
-          <span>X</span>
         </a>
 
         <a

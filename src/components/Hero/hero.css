@@ -356,6 +356,11 @@
   user-select: none;
 }
 
+.hero-social-pill.hero-social-pill-icon-only {
+  padding: 10px 16px;
+  justify-content: center;
+}
+
 .hero-social-pill:hover {
   border-color: var(--color-cobalt);
   color: var(--color-cobalt);
@@ -570,6 +575,10 @@
     padding: 7px 15px;
     font-size: 12px;
     gap: 6px;
+  }
+
+  .hero-social-pill.hero-social-pill-icon-only {
+    padding: 7px 12px;
   }
 }
 
