@@ -81,11 +81,18 @@ My personal portfolio showcasing my technical capabilities, digital strategy ser
 ## 📊 GitHub at a Glance
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=leonshireku&show_icons=true&theme=transparent&hide_border=true&rank_icon=github" alt="Leon Shireku's GitHub statistics" />
+  <a href="https://github.com/leonshireku">
+    <img src="https://github-stats-extended.vercel.app/api?username=leonshireku&show_icons=true&include_all_commits=true&count_private=true&theme=transparent&hide_border=true&rank_icon=github" alt="Leon Shireku's GitHub statistics" />
+  </a>
+  <a href="https://github.com/leonshireku">
+    <img src="https://streak-stats.demolab.com/?user=leonshireku&theme=transparent&hide_border=true" alt="Leon Shireku's GitHub Streak" />
+  </a>
 </p>
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=leonshireku&layout=compact&theme=transparent&hide_border=true" alt="Most used programming languages on Leon Shireku's GitHub repositories" />
+  <a href="https://github.com/leonshireku">
+    <img src="https://github-stats-extended.vercel.app/api/top-langs/?username=leonshireku&layout=compact&theme=transparent&hide_border=true&langs_count=8" alt="Most used programming languages on Leon Shireku's GitHub repositories" />
+  </a>
 </p>
 
 ---
@@ -106,7 +113,10 @@ I'm always open to connecting with developers, entrepreneurs, businesses, and pe
 
 <p align="left">
   <a href="https://www.leonshireku.me/">
-    <img src="https://img.shields.io/badge/Portfolio-Visit%20Website-111827?style=for-the-badge&logo=vercel&logoColor=white" alt="Visit Leon Shireku's portfolio" />
+    <img src="https://img.shields.io/badge/Portfolio-Visit%20Website-0047FF?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Visit Leon Shireku's portfolio" />
+  </a>
+  <a href="https://x.com/Leon_Nelson25">
+    <img src="https://img.shields.io/badge/X-Follow%20@Leon__Nelson25-000000?style=for-the-badge&logo=x&logoColor=white" alt="Follow Leon Nelson on X" />
   </a>
   <a href="mailto:leonshireku@gmail.com">
     <img src="https://img.shields.io/badge/Email-Let's%20Talk-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email Leon Shireku" />
