@@ -2,7 +2,7 @@ import React from 'react'
 import './footer.css'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import { FaInstagram, FaFacebook, FaGithub } from 'react-icons/fa'
-import { FaTiktok } from 'react-icons/fa6'
+import { FaTiktok, FaXTwitter } from 'react-icons/fa6'
 import { FiArrowUpRight } from 'react-icons/fi'
 
 function Footer() {
@@ -74,6 +74,18 @@ function Footer() {
             >
               <FaGithub className="footer-social-icon" />
               <span>GitHub</span>
+              <FiArrowUpRight className="footer-link-arrow" />
+            </a>
+
+            <a
+              href="https://x.com/Leon_Nelson25"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-social-link"
+              aria-label="X (formerly Twitter) profile @Leon_Nelson25"
+            >
+              <FaXTwitter className="footer-social-icon" />
+              <span>X (@Leon_Nelson25)</span>
               <FiArrowUpRight className="footer-link-arrow" />
             </a>
 

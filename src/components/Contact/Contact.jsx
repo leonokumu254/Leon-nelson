@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './contact.css'
 import { FiArrowUpRight, FiCheck, FiPhone, FiFileText } from 'react-icons/fi'
-import { FaInstagram, FaGithub, FaWhatsapp, FaTiktok } from 'react-icons/fa6'
+import { FaInstagram, FaGithub, FaWhatsapp, FaTiktok, FaXTwitter } from 'react-icons/fa6'
 
 const Contact = () => {
   const [copied, setCopied] = useState(false)
@@ -112,6 +112,17 @@ const Contact = () => {
           >
             <FaGithub className="pill-platform-icon" />
             <span>GitHub</span>
+          </a>
+
+          <a
+            href="https://x.com/Leon_Nelson25"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="contact-platform-pill"
+            aria-label="X (formerly Twitter) profile @Leon_Nelson25"
+          >
+            <FaXTwitter className="pill-platform-icon" />
+            <span>X (@Leon_Nelson25)</span>
           </a>
 
           <a

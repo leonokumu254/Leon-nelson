@@ -1,194 +1,131 @@
-# ⚡ Leon Nelson Shireku — Full-Stack Software Engineer & Digital Strategist
+  # 👋 Hey, I'm Leon Shireku
 
-[![Live Portfolio](https://img.shields.io/badge/Live_Portfolio-leonshireku.me-0047FF?style=for-the-badge&logo=googlechrome&logoColor=white)](https://leonshireku.me/)
-[![Lighthouse Score](https://img.shields.io/badge/Lighthouse-100%20SEO%20%7C%20100%20Best%20Practices-success?style=for-the-badge&logo=lighthouse&logoColor=white)](https://leonshireku.me/)
-[![Agentic Web](https://img.shields.io/badge/Agentic_Browsing-4%2F4%20Verified-blueviolet?style=for-the-badge&logo=openai&logoColor=white)](https://leonshireku.me/llms.txt)
-[![Location](https://img.shields.io/badge/Location-Nairobi%2C%20Kenya-101010?style=for-the-badge&logo=googlemaps&logoColor=white)](https://maps.google.com/?q=Nairobi,Kenya)
+### Full-Stack Software Engineer · DevOps & Cloud Engineer · Digital Strategist
 
-A high-performance, modern portfolio engineered with React, Vite, and bespoke CSS architecture. Designed with a luxury editorial aesthetic, interactive micro-animations, and full-spectrum search engine & AI agent discoverability.
+I build digital experiences that bring together **technology, creativity, and business impact.**
 
----
+I'm Leon Nelson Shireku, a software engineer and digital strategist based in Nairobi, Kenya. I enjoy turning ideas into practical digital solutions — from responsive websites and full-stack applications to automated systems and search-optimized digital experiences.
 
-## 📸 Portfolio Preview
+My approach goes beyond writing code. I believe great software should solve meaningful problems, deliver exceptional user experiences, and create measurable value.
 
-<div align="center">
-  <img src="./public/projectscreenshot.png" alt="Leon Nelson Portfolio Preview" width="100%" style="border-radius: 12px; box-shadow: 0 12px 36px rgba(0,0,0,0.25);" />
-</div>
+🌍 **Explore my portfolio:** [leonshireku.me](https://www.leonshireku.me/)
 
 ---
 
-## 👤 Who is Leon Shireku?
+## 🚀 What I'm About
 
-> **"Code without business impact is an expensive toy. Marketing without a resilient technical engine is a leaky funnel. I engineer both."**
-
-**Leon Nelson Shireku** is a Nairobi-based **Full-Stack Software Engineer & Digital Growth Strategist**. He specializes in bridging high-level software architecture with aggressive commercial outcomes—building web platforms that load instantaneously, rank natively on Google, and convert casual visitors into loyal, paying clients.
-
-Rather than treating engineering and digital marketing as isolated disciplines, Leon operates as a **dual-threat technical partner** for high-growth businesses and ambitious founders worldwide.
-
-```
-       ┌────────────────────────────────────────────────────────┐
-       │                 LEON SHIREKU'S FLYWHEEL                │
-       └───────────────────────────┬────────────────────────────┘
-                                   │
-         ┌─────────────────────────┴─────────────────────────┐
-         ▼                                                   ▼
-┌─────────────────────────────────┐       ┌─────────────────────────────────┐
-│     TECHNICAL ENGINEERING       │       │    GROWTH & MARKET ACQUISITION  │
-├─────────────────────────────────┤       ├─────────────────────────────────┤
-│ • React, Next.js & TypeScript   │ ◄───► │ • Data-Driven Technical SEO     │
-│ • Node.js & Express REST APIs   │       │ • Core Web Vitals Dominance     │
-│ • Docker & Automated CI/CD      │       │ • High-Conversion User Funnels  │
-│ • Payment Gateways & STK Push   │       │ • Organic Content & Brand Reach │
-└─────────────────────────────────┘       └─────────────────────────────────┘
-                                   │
-                                   ▼
-       ┌────────────────────────────────────────────────────────┐
-       │     TANGIBLE ROI: Direct Bookings, Zero Recurring      │
-       │        CMS Fees & Automated Hands-Off Operations       │
-       └────────────────────────────────────────────────────────┘
-```
-
-### 🧠 The Core Philosophy
-1. **Zero-Subscription Independence**: Eliminating recurring third-party CMS and SaaS overhead by architecting custom, client-owned back offices and booking portals.
-2. **Sub-Second Performance**: Engineering for 90+ Core Web Vitals, Lanczos-optimized media pipelines, and instant initial paint.
-3. **Frictionless Real-World Automation**: Connecting digital interfaces to real-world operations—such as automated M-Pesa STK push payments triggering instant self-check-in door lockbox codes and Wi-Fi credential dispatch.
-
-### 📊 Quick Facts
-
-| Dimension | Details |
-| :--- | :--- |
-| **Full Name** | Leon Nelson Shireku |
-| **Known Online As** | Leon Shireku / `@leonshireku` |
-| **Core Discipline** | Full-Stack Web Development, DevOps & Technical SEO |
-| **Geographic Base** | Nairobi, Kenya *(Available Globally for Remote Collaboration & Retainers)* |
-| **Client Portfolio** | Safari & Hospitality Platforms, Tour Booking Engines, Enterprise Web Apps |
-| **Primary Arsenal** | React, Next.js, Node.js, Python, PostgreSQL, Docker, Tailwind/Vanilla CSS |
-| **Curriculum Vitae** | [Verified Google Docs CV](https://docs.google.com/document/d/1ysB4CDrRh2jZUjOp3PFblqdg8njHe-kTuuGXMdi2ZNQ/edit?usp=sharing) |
+- 💻 Building modern, responsive, and scalable web applications.
+- ☁️ Exploring cloud infrastructure, DevOps, and deployment automation.
+- 📈 Combining software engineering with SEO, digital marketing, and organic growth.
+- 🤖 Exploring AI-powered applications and emerging developer technologies.
+- 🛠️ Learning continuously by building real-world projects.
+- 🤝 Open to collaborations, exciting projects, and opportunities to grow.
 
 ---
 
-## 🌟 Key Features & Architecture
+## 🧰 Tech Stack & Tools
 
-### 1. 🔠 Character Staggered Blur & Scramble Reveal
-- Custom character-by-character unblur animation using CSS variables (`--char-index`), hardware-accelerated transforms, and Gaussian blurs (`filter: blur(14px) → blur(0px)`).
-- On page load and interactive hover, letters dynamically cycle through cryptographic tech glyphs (`01#X_@$8&*`) before snapping into razor-sharp typography.
-- **Automatic Periodic Re-Reveal**: Features a graceful ~9.1s interval that automatically replays the scramble cycle after completion, keeping the hero section visually alive.
-- Fully accessible via semantic `<h1>` with `aria-label` for screen readers and AI crawlers.
+### Frontend Development
+<p>
+  <img src="https://skillicons.dev/icons?i=html,css,js,react,nextjs,vite,tailwind" alt="Frontend technologies: HTML, CSS, JavaScript, React, Next.js, Vite and Tailwind CSS" />
+</p>
 
-### 2. 🎰 Kinetic Role Slot-Machine Reel
-- Automatically rolls through core disciplines every 3.2s with cubic-bezier easing:
-  - *Full-Stack Software Engineer*
-  - *DevOps & Cloud Engineer*
-  - *Social Media Manager*
-  - *Digital Marketer & SEO Specialist*
-- Synchronized with dual-viewport bio descriptions and direct collaboration CTAs.
+### Backend & Database
+<p>
+  <img src="https://skillicons.dev/icons?i=nodejs,express,python,postgres,mongodb,firebase" alt="Backend technologies: Node.js, Express, Python, PostgreSQL, MongoDB and Firebase" />
+</p>
 
-### 3. 📖 Editorial Case Studies & Architecture Deep-Dives
-- **Supreme Adventures**: Custom East African safari booking engine & private staff portal. Ranked on Google to drive direct international travelers with zero recurring CMS subscriptions.
-- **Lulu Aurelian Estate**: Luxury vacation rental platform featuring automated M-Pesa STK push payments, instant smart door lockbox code delivery, and live property management dashboards.
-- Interactive modal case study viewer featuring technical architecture breakdowns, problem-solution matrices, and video previews.
+### DevOps, Cloud & Development Tools
+<p>
+  <img src="https://skillicons.dev/icons?i=git,github,docker,linux,vercel,figma,vscode" alt="Tools: Git, GitHub, Docker, Linux, Vercel, Figma and Visual Studio Code" />
+</p>
 
-### 4. 🚀 Performance & Core Web Vitals
-- **Next-Gen Image Formats**: Assets converted to Lanczos-resampled WebP (saving over 2,600 KiB across mockups and portraits).
-- **Sub-Second LCP**: Hero portrait preloaded via `<link rel="preload" as="image" fetchpriority="high">`.
-- **Zero Layout Shift (0.00 CLS)**: Explicit dimensions and aspect-ratio reservation across all media.
-- **Render-Blocking Free**: Eliminated font `@import` latency by preconnecting Google Fonts with `&display=swap`.
+### Digital Growth & Optimization
 
-### 5. 🤖 Search Engine Optimization & Agentic Web (4/4 Score)
-- **Semantic Prerender Shell**: Statically prerendered HTML snapshot directly inside `<div id="root">` ensures non-JS bots, Googlebot Wave 1, Bingbot, and social crawlers index all headings, case studies, and contact info immediately.
-- **Structured Data (JSON-LD)**: Schema.org `Person` and `WebSite` entities for Google Knowledge Graph inclusion.
-- **AI Agent Discoverability**:
-  - `llms.txt` & `.well-known/llms.txt` conforming to the [llmstxt.org](https://llmstxt.org/) specification.
-  - `ai-catalog.json` conforming to the **Agentic Resource Discovery (ARD 1.0)** standard.
-- **Social Graph Protocol**: OpenGraph and Twitter/X cards linked to verified portrait metadata (`/picha.png`).
+- Technical SEO and website performance optimization
+- Search Engine Optimization (SEO)
+- Answer Engine Optimization (AEO)
+- Content strategy and social media management
+- Analytics-driven digital growth
 
 ---
 
-## 🛠️ Tech Stack
+## 💡 Featured Projects
 
-| Layer | Technologies |
-| :--- | :--- |
-| **Frontend Core** | React 18, JSX, JavaScript (ESNext) |
-| **Build & Tooling** | Vite, PostCSS, ESLint |
-| **Styling & Motion** | Vanilla CSS3 (Custom Tokens), AOS (Animate On Scroll), Keyframe Physics |
-| **Icons & Typography** | React Icons (`fa6`, `si`, `fi`), Space Grotesk, Plus Jakarta Sans |
-| **SEO & Discovery** | Schema.org JSON-LD, ARD 1.0 (`ai-catalog.json`), `llms.txt`, OpenGraph |
+### 🦁 Supreme Adventures — Safari & Tour Booking Platform
 
----
+A custom digital platform developed for an East African tour operator, designed to showcase travel experiences, support direct customer bookings, and strengthen online visibility.
 
-## 📂 Project Structure
+**Focus areas:** Web development · Booking systems · Technical SEO · Business automation
 
-```bash
-Leon-Nelson/
-├── public/
-│   ├── .well-known/            # ARD ai-catalog.json and llms.txt discovery
-│   ├── projects/               # WebP mockups & demo video previews
-│   ├── services/               # Optimized service category previews
-│   ├── ai-catalog.json         # Agentic Resource Discovery manifest
-│   ├── llms.txt                # LLM markdown documentation index
-│   ├── picha.webp / picha.png  # Hero portrait & social share media
-│   ├── projectscreenshot.png   # Full portfolio visual preview
-│   ├── robots.txt              # Search engine crawler directives
-│   └── sitemap.xml             # Canonical sitemap protocol
-├── src/
-│   ├── assets/                 # Shared data sets & branding assets
-│   ├── components/
-│   │   ├── About/              # Narrative, CV access & tech stack grid
-│   │   ├── Contact/            # Cloud stage, direct inquiry & channels
-│   │   ├── Footer/             # Brand footer, copyright & social links
-│   │   ├── Hero/               # Typography scramble, wheel reel & portrait
-│   │   ├── services/           # Interactive accordion service cards
-│   │   ├── Work/               # Case studies, modal spread & video preview
-│   │   └── navbar.jsx          # Sticky glassmorphism desktop & mobile nav
-│   ├── App.jsx                 # Root application wrapper & AOS init
-│   ├── index.css               # Global tokens, color system & reset
-│   └── main.jsx                # React DOM entry point
-├── index.html                  # SEO metadata, JSON-LD & prerender shell
-└── package.json
-```
+🔗 [Visit Website](https://supremeadventureske.com/)
+
+### 🏡 Lulu Aurelian — Luxury Hospitality Platform
+
+A modern hospitality platform for premium serviced apartments in Nyeri, Kenya, combining elegant digital experiences with operational automation.
+
+**Focus areas:** Full-stack development · M-Pesa STK Push · Guest automation · Property management
+
+🔗 [Visit Website](https://www.luluaurelian.co.ke/)
+
+### 🌐 Leon Shireku — Personal Portfolio
+
+My personal portfolio showcasing my technical capabilities, digital strategy services, selected projects, and professional journey.
+
+**Focus areas:** React · Vite · Responsive UI · Technical SEO · Performance optimization
+
+🔗 [Explore Portfolio](https://www.leonshireku.me/)
 
 ---
 
-## ⚡ Getting Started Locally
+## 📊 GitHub at a Glance
 
-### Prerequisites
-- Node.js (v18 or higher recommended)
-- npm or yarn
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=leonshireku&show_icons=true&theme=transparent&hide_border=true&rank_icon=github" alt="Leon Shireku's GitHub statistics" />
+</p>
 
-### Installation
-```bash
-# 1. Clone repository
-git clone https://github.com/leonshireku/Leon-nelson.git
-cd Leon-nelson
-
-# 2. Install dependencies
-npm install
-
-# 3. Start local development server
-npm run dev
-```
-
-### Production Build & Preview
-```bash
-# Build optimized production bundle to /dist
-npm run build
-
-# Preview production build locally
-npm run preview
-```
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=leonshireku&layout=compact&theme=transparent&hide_border=true" alt="Most used programming languages on Leon Shireku's GitHub repositories" />
+</p>
 
 ---
 
-## 📬 Contact & Collaboration
+## 🌱 Currently Exploring
 
-- **Live Website**: [leonshireku.me](https://leonshireku.me/)
-- **Email**: [leonshireku@gmail.com](mailto:leonshireku@gmail.com)
-- **Phone / WhatsApp**: [+254 741 766 710](https://wa.me/254741766710)
-- **GitHub**: [@leonshireku](https://github.com/leonshireku)
-- **TikTok**: [@nelson_leon6](https://www.tiktok.com/@nelson_leon6?is_from_webapp=1&sender_device=pc)
-- **Instagram**: [@leon.nelson.121](https://www.instagram.com/leon.nelson.121)
-- **Resume / CV**: [Google Docs Curriculum Vitae](https://docs.google.com/document/d/1ysB4CDrRh2jZUjOp3PFblqdg8njHe-kTuuGXMdi2ZNQ/edit?usp=sharing)
+- AI-powered applications and intelligent workflows
+- Cloud-native application development
+- DevOps practices and CI/CD automation
+- Modern backend architecture and API development
+- Building digital products that solve real-world challenges
 
 ---
 
-&copy; 2026 Leon Nelson Shireku. All rights reserved.
+## 💬 Let's Connect
+
+I'm always open to connecting with developers, entrepreneurs, businesses, and people passionate about building impactful technology.
+
+<p align="left">
+  <a href="https://www.leonshireku.me/">
+    <img src="https://img.shields.io/badge/Portfolio-Visit%20Website-111827?style=for-the-badge&logo=vercel&logoColor=white" alt="Visit Leon Shireku's portfolio" />
+  </a>
+  <a href="mailto:leonshireku@gmail.com">
+    <img src="https://img.shields.io/badge/Email-Let's%20Talk-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email Leon Shireku" />
+  </a>
+  <a href="https://github.com/leonshireku">
+    <img src="https://img.shields.io/badge/GitHub-Follow%20My%20Work-181717?style=for-the-badge&logo=github&logoColor=white" alt="Follow Leon Shireku on GitHub" />
+  </a>
+  <a href="https://www.instagram.com/leon.nelson.121/">
+    <img src="https://img.shields.io/badge/Instagram-Connect-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Connect with Leon Shireku on Instagram" />
+  </a>
+</p>
+
+---
+
+<p align="center">
+  <i>"Building with purpose. Learning without limits. Creating impact through technology."</i>
+</p>
+
+<p align="center">
+  ⭐ If something here interests you, feel free to explore my repositories and connect!
+</p>
+
